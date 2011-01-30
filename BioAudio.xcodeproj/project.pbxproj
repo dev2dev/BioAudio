@@ -1,0 +1,443 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* BioAudioAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* BioAudioAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		3A022CF212E8990800F064EE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A022CF112E8990800F064EE /* AudioToolbox.framework */; };
+		3A022CF712E8992B00F064EE /* BioAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A022CF612E8992B00F064EE /* BioAudio.m */; };
+		3AA1C52212F5BF89003E49DD /* OSCAddressSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C4F512F5BF89003E49DD /* OSCAddressSpace.m */; };
+		3AA1C52312F5BF89003E49DD /* OSCBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C4F712F5BF89003E49DD /* OSCBundle.m */; };
+		3AA1C52412F5BF89003E49DD /* OSCInPort.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C4FA12F5BF89003E49DD /* OSCInPort.m */; };
+		3AA1C52512F5BF89003E49DD /* OSCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C4FC12F5BF89003E49DD /* OSCManager.m */; };
+		3AA1C52612F5BF89003E49DD /* OSCMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C4FE12F5BF89003E49DD /* OSCMessage.m */; };
+		3AA1C52712F5BF89003E49DD /* OSCNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C50012F5BF89003E49DD /* OSCNode.m */; };
+		3AA1C52812F5BF89003E49DD /* OSCOutPort.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C50212F5BF89003E49DD /* OSCOutPort.m */; };
+		3AA1C52912F5BF89003E49DD /* OSCPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C50412F5BF89003E49DD /* OSCPacket.m */; };
+		3AA1C52A12F5BF89003E49DD /* OSCStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C50612F5BF89003E49DD /* OSCStringAdditions.m */; };
+		3AA1C52B12F5BF89003E49DD /* OSCValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C50812F5BF89003E49DD /* OSCValue.m */; };
+		3AA1C52C12F5BF89003E49DD /* OSCZeroConfDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C50A12F5BF89003E49DD /* OSCZeroConfDomain.m */; };
+		3AA1C52D12F5BF89003E49DD /* OSCZeroConfManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C50C12F5BF89003E49DD /* OSCZeroConfManager.m */; };
+		3AA1C52E12F5BF89003E49DD /* MutLockArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C51112F5BF89003E49DD /* MutLockArray.m */; };
+		3AA1C52F12F5BF89003E49DD /* MutLockDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C51312F5BF89003E49DD /* MutLockDict.m */; };
+		3AA1C53012F5BF89003E49DD /* MutNRLockArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C51512F5BF89003E49DD /* MutNRLockArray.m */; };
+		3AA1C53112F5BF89003E49DD /* MutNRLockDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C51712F5BF89003E49DD /* MutNRLockDict.m */; };
+		3AA1C53212F5BF89003E49DD /* NamedMutLockArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C51912F5BF89003E49DD /* NamedMutLockArray.m */; };
+		3AA1C53312F5BF89003E49DD /* ObjectHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C51B12F5BF89003E49DD /* ObjectHolder.m */; };
+		3AA1C53412F5BF89003E49DD /* VVStopwatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C51E12F5BF89003E49DD /* VVStopwatch.m */; };
+		3AA1C53512F5BF89003E49DD /* VVThreadLoop.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AA1C52012F5BF89003E49DD /* VVThreadLoop.m */; };
+		3ABDAE3C12F2598D00F2EDEF /* BioAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDAE3A12F2598D00F2EDEF /* BioAudioViewController.m */; };
+		3ABDAE3D12F2598D00F2EDEF /* BioAudioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ABDAE3B12F2598D00F2EDEF /* BioAudioViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* BioAudioAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BioAudioAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* BioAudioAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BioAudioAppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* BioAudio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BioAudio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* BioAudio_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BioAudio_Prefix.pch; sourceTree = "<group>"; };
+		3A022CF112E8990800F064EE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		3A022CF512E8992B00F064EE /* BioAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BioAudio.h; sourceTree = "<group>"; };
+		3A022CF612E8992B00F064EE /* BioAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BioAudio.m; sourceTree = "<group>"; };
+		3A1EA83412ED90E2005AE738 /* OldBioAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OldBioAudio.h; sourceTree = "<group>"; };
+		3A1EA83512ED90E2005AE738 /* OldBioAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OldBioAudio.m; sourceTree = "<group>"; };
+		3AA1C4F412F5BF89003E49DD /* OSCAddressSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSCAddressSpace.h; sourceTree = "<group>"; };
+		3AA1C4F512F5BF89003E49DD /* OSCAddressSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCAddressSpace.m; sourceTree = "<group>"; };
+		3AA1C4F612F5BF89003E49DD /* OSCBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSCBundle.h; sourceTree = "<group>"; };
+		3AA1C4F712F5BF89003E49DD /* OSCBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCBundle.m; sourceTree = "<group>"; };
+		3AA1C4F812F5BF89003E49DD /* OSCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSCConstants.h; sourceTree = "<group>"; };
+		3AA1C4F912F5BF89003E49DD /* OSCInPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSCInPort.h; sourceTree = "<group>"; };
+		3AA1C4FA12F5BF89003E49DD /* OSCInPort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCInPort.m; sourceTree = "<group>"; };
+		3AA1C4FB12F5BF89003E49DD /* OSCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSCManager.h; sourceTree = "<group>"; };
+		3AA1C4FC12F5BF89003E49DD /* OSCManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCManager.m; sourceTree = "<group>"; };
+		3AA1C4FD12F5BF89003E49DD /* OSCMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSCMessage.h; sourceTree = "<group>"; };
+		3AA1C4FE12F5BF89003E49DD /* OSCMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCMessage.m; sourceTree = "<group>"; };
+		3AA1C4FF12F5BF89003E49DD /* OSCNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSCNode.h; sourceTree = "<group>"; };
+		3AA1C50012F5BF89003E49DD /* OSCNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCNode.m; sourceTree = "<group>"; };
+		3AA1C50112F5BF89003E49DD /* OSCOutPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSCOutPort.h; sourceTree = "<group>"; };
+		3AA1C50212F5BF89003E49DD /* OSCOutPort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCOutPort.m; sourceTree = "<group>"; };
+		3AA1C50312F5BF89003E49DD /* OSCPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSCPacket.h; sourceTree = "<group>"; };
+		3AA1C50412F5BF89003E49DD /* OSCPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCPacket.m; sourceTree = "<group>"; };
+		3AA1C50512F5BF89003E49DD /* OSCStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSCStringAdditions.h; sourceTree = "<group>"; };
+		3AA1C50612F5BF89003E49DD /* OSCStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCStringAdditions.m; sourceTree = "<group>"; };
+		3AA1C50712F5BF89003E49DD /* OSCValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSCValue.h; sourceTree = "<group>"; };
+		3AA1C50812F5BF89003E49DD /* OSCValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCValue.m; sourceTree = "<group>"; };
+		3AA1C50912F5BF89003E49DD /* OSCZeroConfDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSCZeroConfDomain.h; sourceTree = "<group>"; };
+		3AA1C50A12F5BF89003E49DD /* OSCZeroConfDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCZeroConfDomain.m; sourceTree = "<group>"; };
+		3AA1C50B12F5BF89003E49DD /* OSCZeroConfManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSCZeroConfManager.h; sourceTree = "<group>"; };
+		3AA1C50C12F5BF89003E49DD /* OSCZeroConfManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCZeroConfManager.m; sourceTree = "<group>"; };
+		3AA1C50D12F5BF89003E49DD /* VVOSC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVOSC.h; sourceTree = "<group>"; };
+		3AA1C51012F5BF89003E49DD /* MutLockArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutLockArray.h; sourceTree = "<group>"; };
+		3AA1C51112F5BF89003E49DD /* MutLockArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutLockArray.m; sourceTree = "<group>"; };
+		3AA1C51212F5BF89003E49DD /* MutLockDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutLockDict.h; sourceTree = "<group>"; };
+		3AA1C51312F5BF89003E49DD /* MutLockDict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutLockDict.m; sourceTree = "<group>"; };
+		3AA1C51412F5BF89003E49DD /* MutNRLockArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutNRLockArray.h; sourceTree = "<group>"; };
+		3AA1C51512F5BF89003E49DD /* MutNRLockArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutNRLockArray.m; sourceTree = "<group>"; };
+		3AA1C51612F5BF89003E49DD /* MutNRLockDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutNRLockDict.h; sourceTree = "<group>"; };
+		3AA1C51712F5BF89003E49DD /* MutNRLockDict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutNRLockDict.m; sourceTree = "<group>"; };
+		3AA1C51812F5BF89003E49DD /* NamedMutLockArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamedMutLockArray.h; sourceTree = "<group>"; };
+		3AA1C51912F5BF89003E49DD /* NamedMutLockArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NamedMutLockArray.m; sourceTree = "<group>"; };
+		3AA1C51A12F5BF89003E49DD /* ObjectHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectHolder.h; sourceTree = "<group>"; };
+		3AA1C51B12F5BF89003E49DD /* ObjectHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectHolder.m; sourceTree = "<group>"; };
+		3AA1C51C12F5BF89003E49DD /* VVBasicMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVBasicMacros.h; sourceTree = "<group>"; };
+		3AA1C51D12F5BF89003E49DD /* VVStopwatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVStopwatch.h; sourceTree = "<group>"; };
+		3AA1C51E12F5BF89003E49DD /* VVStopwatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVStopwatch.m; sourceTree = "<group>"; };
+		3AA1C51F12F5BF89003E49DD /* VVThreadLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVThreadLoop.h; sourceTree = "<group>"; };
+		3AA1C52012F5BF89003E49DD /* VVThreadLoop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VVThreadLoop.m; sourceTree = "<group>"; };
+		3AA1C52112F5BF89003E49DD /* VVBasics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VVBasics.h; sourceTree = "<group>"; };
+		3ABDAE3912F2598D00F2EDEF /* BioAudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BioAudioViewController.h; sourceTree = "<group>"; };
+		3ABDAE3A12F2598D00F2EDEF /* BioAudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BioAudioViewController.m; sourceTree = "<group>"; };
+		3ABDAE3B12F2598D00F2EDEF /* BioAudioViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BioAudioViewController.xib; path = Classes/BioAudioViewController.xib; sourceTree = "<group>"; };
+		3AE8079412F43D8200616FE9 /* FirAlgs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FirAlgs.c; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* BioAudio-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BioAudio-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
+				3A022CF212E8990800F064EE /* AudioToolbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3AA1C4F212F5BF89003E49DD /* VVOSC */,
+				3AA1C50E12F5BF89003E49DD /* VVBasics */,
+				3AE8079412F43D8200616FE9 /* FirAlgs.c */,
+				1D3623240D0F684500981E51 /* BioAudioAppDelegate.h */,
+				1D3623250D0F684500981E51 /* BioAudioAppDelegate.m */,
+				3A022CF512E8992B00F064EE /* BioAudio.h */,
+				3A022CF612E8992B00F064EE /* BioAudio.m */,
+				3A1EA83412ED90E2005AE738 /* OldBioAudio.h */,
+				3A1EA83512ED90E2005AE738 /* OldBioAudio.m */,
+				3ABDAE3912F2598D00F2EDEF /* BioAudioViewController.h */,
+				3ABDAE3A12F2598D00F2EDEF /* BioAudioViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* BioAudio.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* BioAudio_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3ABDAE3B12F2598D00F2EDEF /* BioAudioViewController.xib */,
+				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
+				8D1107310486CEB800E47090 /* BioAudio-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
+				3A022CF112E8990800F064EE /* AudioToolbox.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3AA1C4F212F5BF89003E49DD /* VVOSC */ = {
+			isa = PBXGroup;
+			children = (
+				3AA1C4F312F5BF89003E49DD /* FrameworkSrc */,
+				3AA1C50D12F5BF89003E49DD /* VVOSC.h */,
+			);
+			path = VVOSC;
+			sourceTree = "<group>";
+		};
+		3AA1C4F312F5BF89003E49DD /* FrameworkSrc */ = {
+			isa = PBXGroup;
+			children = (
+				3AA1C4F412F5BF89003E49DD /* OSCAddressSpace.h */,
+				3AA1C4F512F5BF89003E49DD /* OSCAddressSpace.m */,
+				3AA1C4F612F5BF89003E49DD /* OSCBundle.h */,
+				3AA1C4F712F5BF89003E49DD /* OSCBundle.m */,
+				3AA1C4F812F5BF89003E49DD /* OSCConstants.h */,
+				3AA1C4F912F5BF89003E49DD /* OSCInPort.h */,
+				3AA1C4FA12F5BF89003E49DD /* OSCInPort.m */,
+				3AA1C4FB12F5BF89003E49DD /* OSCManager.h */,
+				3AA1C4FC12F5BF89003E49DD /* OSCManager.m */,
+				3AA1C4FD12F5BF89003E49DD /* OSCMessage.h */,
+				3AA1C4FE12F5BF89003E49DD /* OSCMessage.m */,
+				3AA1C4FF12F5BF89003E49DD /* OSCNode.h */,
+				3AA1C50012F5BF89003E49DD /* OSCNode.m */,
+				3AA1C50112F5BF89003E49DD /* OSCOutPort.h */,
+				3AA1C50212F5BF89003E49DD /* OSCOutPort.m */,
+				3AA1C50312F5BF89003E49DD /* OSCPacket.h */,
+				3AA1C50412F5BF89003E49DD /* OSCPacket.m */,
+				3AA1C50512F5BF89003E49DD /* OSCStringAdditions.h */,
+				3AA1C50612F5BF89003E49DD /* OSCStringAdditions.m */,
+				3AA1C50712F5BF89003E49DD /* OSCValue.h */,
+				3AA1C50812F5BF89003E49DD /* OSCValue.m */,
+				3AA1C50912F5BF89003E49DD /* OSCZeroConfDomain.h */,
+				3AA1C50A12F5BF89003E49DD /* OSCZeroConfDomain.m */,
+				3AA1C50B12F5BF89003E49DD /* OSCZeroConfManager.h */,
+				3AA1C50C12F5BF89003E49DD /* OSCZeroConfManager.m */,
+			);
+			path = FrameworkSrc;
+			sourceTree = "<group>";
+		};
+		3AA1C50E12F5BF89003E49DD /* VVBasics */ = {
+			isa = PBXGroup;
+			children = (
+				3AA1C50F12F5BF89003E49DD /* src */,
+				3AA1C52112F5BF89003E49DD /* VVBasics.h */,
+			);
+			path = VVBasics;
+			sourceTree = "<group>";
+		};
+		3AA1C50F12F5BF89003E49DD /* src */ = {
+			isa = PBXGroup;
+			children = (
+				3AA1C51012F5BF89003E49DD /* MutLockArray.h */,
+				3AA1C51112F5BF89003E49DD /* MutLockArray.m */,
+				3AA1C51212F5BF89003E49DD /* MutLockDict.h */,
+				3AA1C51312F5BF89003E49DD /* MutLockDict.m */,
+				3AA1C51412F5BF89003E49DD /* MutNRLockArray.h */,
+				3AA1C51512F5BF89003E49DD /* MutNRLockArray.m */,
+				3AA1C51612F5BF89003E49DD /* MutNRLockDict.h */,
+				3AA1C51712F5BF89003E49DD /* MutNRLockDict.m */,
+				3AA1C51812F5BF89003E49DD /* NamedMutLockArray.h */,
+				3AA1C51912F5BF89003E49DD /* NamedMutLockArray.m */,
+				3AA1C51A12F5BF89003E49DD /* ObjectHolder.h */,
+				3AA1C51B12F5BF89003E49DD /* ObjectHolder.m */,
+				3AA1C51C12F5BF89003E49DD /* VVBasicMacros.h */,
+				3AA1C51D12F5BF89003E49DD /* VVStopwatch.h */,
+				3AA1C51E12F5BF89003E49DD /* VVStopwatch.m */,
+				3AA1C51F12F5BF89003E49DD /* VVThreadLoop.h */,
+				3AA1C52012F5BF89003E49DD /* VVThreadLoop.m */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* BioAudio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "BioAudio" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BioAudio;
+			productName = BioAudio;
+			productReference = 1D6058910D05DD3D006BFB54 /* BioAudio.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "BioAudio" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* BioAudio */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
+				3ABDAE3D12F2598D00F2EDEF /* BioAudioViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* BioAudioAppDelegate.m in Sources */,
+				3A022CF712E8992B00F064EE /* BioAudio.m in Sources */,
+				3ABDAE3C12F2598D00F2EDEF /* BioAudioViewController.m in Sources */,
+				3AA1C52212F5BF89003E49DD /* OSCAddressSpace.m in Sources */,
+				3AA1C52312F5BF89003E49DD /* OSCBundle.m in Sources */,
+				3AA1C52412F5BF89003E49DD /* OSCInPort.m in Sources */,
+				3AA1C52512F5BF89003E49DD /* OSCManager.m in Sources */,
+				3AA1C52612F5BF89003E49DD /* OSCMessage.m in Sources */,
+				3AA1C52712F5BF89003E49DD /* OSCNode.m in Sources */,
+				3AA1C52812F5BF89003E49DD /* OSCOutPort.m in Sources */,
+				3AA1C52912F5BF89003E49DD /* OSCPacket.m in Sources */,
+				3AA1C52A12F5BF89003E49DD /* OSCStringAdditions.m in Sources */,
+				3AA1C52B12F5BF89003E49DD /* OSCValue.m in Sources */,
+				3AA1C52C12F5BF89003E49DD /* OSCZeroConfDomain.m in Sources */,
+				3AA1C52D12F5BF89003E49DD /* OSCZeroConfManager.m in Sources */,
+				3AA1C52E12F5BF89003E49DD /* MutLockArray.m in Sources */,
+				3AA1C52F12F5BF89003E49DD /* MutLockDict.m in Sources */,
+				3AA1C53012F5BF89003E49DD /* MutNRLockArray.m in Sources */,
+				3AA1C53112F5BF89003E49DD /* MutNRLockDict.m in Sources */,
+				3AA1C53212F5BF89003E49DD /* NamedMutLockArray.m in Sources */,
+				3AA1C53312F5BF89003E49DD /* ObjectHolder.m in Sources */,
+				3AA1C53412F5BF89003E49DD /* VVStopwatch.m in Sources */,
+				3AA1C53512F5BF89003E49DD /* VVThreadLoop.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ADDITIONAL_SDKS = "";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = BioAudio_Prefix.pch;
+				INFOPLIST_FILE = "BioAudio-Info.plist";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = BioAudio;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../vvopensource-read-only/build/Debug\"",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../vvopensource-read-only/build/Release\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = BioAudio_Prefix.pch;
+				INFOPLIST_FILE = "BioAudio-Info.plist";
+				PRODUCT_NAME = BioAudio;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "BioAudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "BioAudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

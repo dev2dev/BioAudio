@@ -1,0 +1,1106 @@
+// !$*UTF8*$!
+{
+	1D3623240D0F684500981E51 /* BioAudioAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {756, 377}}";
+			sepNavSelRange = "{404, 0}";
+			sepNavVisRange = "{0, 618}";
+			sepNavWindowFrame = "{{61, 32}, {1342, 799}}";
+		};
+	};
+	1D3623250D0F684500981E51 /* BioAudioAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1965, 1300}}";
+			sepNavSelRange = "{941, 0}";
+			sepNavVisRange = "{281, 789}";
+			sepNavWindowFrame = "{{61, 32}, {1342, 799}}";
+		};
+	};
+	1D6058900D05DD3D006BFB54 /* BioAudio */ = {
+		activeExec = 0;
+		executables = (
+			3A022CEA12E898FE00F064EE /* BioAudio */,
+		);
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 3A022CEA12E898FE00F064EE /* BioAudio */;
+		activeSDKPreference = iphoneos4.2;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* BioAudio */;
+		addToTargets = (
+			1D6058900D05DD3D006BFB54 /* BioAudio */,
+		);
+		breakpoints = (
+			3A1EA7AB12ED74FE005AE738 /* BioAudio.m:10 */,
+			3AA1C4B812F5BBAE003E49DD /* -[BioAudio remoteIOUnit] */,
+			3AA1C4B912F5BBAE003E49DD /* -[BioAudio setRemoteIOUnit:] */,
+			3AA1C4D612F5BE20003E49DD /* BioAudio.m:177 */,
+			3AA1C4D812F5BE25003E49DD /* BioAudio.m:186 */,
+			3AA1C4DA12F5BE26003E49DD /* BioAudio.m:187 */,
+			3AA1C4DC12F5BE32003E49DD /* BioAudio.m:182 */,
+			3AA1C4DE12F5BE3B003E49DD /* BioAudio.m:181 */,
+		);
+		codeSenseManager = 3A022CF412E8990900F064EE /* Code sense */;
+		executables = (
+			3A022CEA12E898FE00F064EE /* BioAudio */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					575,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFindDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFindDataSource_LocationID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					200,
+					1007,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFindDataSource_MessageID,
+					PBXFindDataSource_LocationID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					953,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 318091541;
+			PBXWorkspaceStateSaveDate = 318091541;
+		};
+		perUserProjectItems = {
+			3A022DDF12E8D32800F064EE = 3A022DDF12E8D32800F064EE /* PBXTextBookmark */;
+			3A022E0112E8D96A00F064EE = 3A022E0112E8D96A00F064EE /* PBXTextBookmark */;
+			3A022E3312EB40A800F064EE = 3A022E3312EB40A800F064EE /* PBXTextBookmark */;
+			3A19B61B12F503CD00CB1867 = 3A19B61B12F503CD00CB1867 /* PBXTextBookmark */;
+			3A1EA7BB12ED770A005AE738 = 3A1EA7BB12ED770A005AE738 /* PBXTextBookmark */;
+			3A1EA7C612ED7B7B005AE738 = 3A1EA7C612ED7B7B005AE738 /* PBXTextBookmark */;
+			3A1EA81512ED8D97005AE738 = 3A1EA81512ED8D97005AE738 /* PBXTextBookmark */;
+			3A1EA81612ED8D97005AE738 = 3A1EA81612ED8D97005AE738 /* PBXTextBookmark */;
+			3A1EAABA12EE3484005AE738 = 3A1EAABA12EE3484005AE738 /* PBXTextBookmark */;
+			3A53239412F5AF6900C4D4FA = 3A53239412F5AF6900C4D4FA /* PBXTextBookmark */;
+			3AA1C42012F5B1A3003E49DD /* PBXTextBookmark */ = 3AA1C42012F5B1A3003E49DD /* PBXTextBookmark */;
+			3AA1C42D12F5B1C3003E49DD /* PBXTextBookmark */ = 3AA1C42D12F5B1C3003E49DD /* PBXTextBookmark */;
+			3AA1C43012F5B1D6003E49DD /* PBXTextBookmark */ = 3AA1C43012F5B1D6003E49DD /* PBXTextBookmark */;
+			3AA1C43B12F5B1EF003E49DD /* PBXTextBookmark */ = 3AA1C43B12F5B1EF003E49DD /* PBXTextBookmark */;
+			3AA1C43C12F5B1EF003E49DD /* PBXTextBookmark */ = 3AA1C43C12F5B1EF003E49DD /* PBXTextBookmark */;
+			3AA1C44712F5B32E003E49DD /* PBXTextBookmark */ = 3AA1C44712F5B32E003E49DD /* PBXTextBookmark */;
+			3AA1C44812F5B32E003E49DD /* PBXTextBookmark */ = 3AA1C44812F5B32E003E49DD /* PBXTextBookmark */;
+			3AA1C44912F5B32E003E49DD /* PBXTextBookmark */ = 3AA1C44912F5B32E003E49DD /* PBXTextBookmark */;
+			3AA1C45512F5B48B003E49DD /* PBXTextBookmark */ = 3AA1C45512F5B48B003E49DD /* PBXTextBookmark */;
+			3AA1C45C12F5B4EB003E49DD /* PBXTextBookmark */ = 3AA1C45C12F5B4EB003E49DD /* PBXTextBookmark */;
+			3AA1C46012F5B4FD003E49DD /* PBXTextBookmark */ = 3AA1C46012F5B4FD003E49DD /* PBXTextBookmark */;
+			3AA1C46412F5B59B003E49DD /* PBXTextBookmark */ = 3AA1C46412F5B59B003E49DD /* PBXTextBookmark */;
+			3AA1C46E12F5B66C003E49DD /* PBXTextBookmark */ = 3AA1C46E12F5B66C003E49DD /* PBXTextBookmark */;
+			3AA1C47412F5B6D8003E49DD /* PBXTextBookmark */ = 3AA1C47412F5B6D8003E49DD /* PBXTextBookmark */;
+			3AA1C47712F5B6F9003E49DD /* PBXTextBookmark */ = 3AA1C47712F5B6F9003E49DD /* PBXTextBookmark */;
+			3AA1C47A12F5B713003E49DD /* PBXTextBookmark */ = 3AA1C47A12F5B713003E49DD /* PBXTextBookmark */;
+			3AA1C47D12F5B721003E49DD /* PBXTextBookmark */ = 3AA1C47D12F5B721003E49DD /* PBXTextBookmark */;
+			3AA1C48012F5B734003E49DD /* PBXTextBookmark */ = 3AA1C48012F5B734003E49DD /* PBXTextBookmark */;
+			3AA1C48312F5B754003E49DD /* PBXTextBookmark */ = 3AA1C48312F5B754003E49DD /* PBXTextBookmark */;
+			3AA1C48612F5B76D003E49DD /* PBXTextBookmark */ = 3AA1C48612F5B76D003E49DD /* PBXTextBookmark */;
+			3AA1C48912F5B780003E49DD /* PBXTextBookmark */ = 3AA1C48912F5B780003E49DD /* PBXTextBookmark */;
+			3AA1C48C12F5B79E003E49DD /* PBXTextBookmark */ = 3AA1C48C12F5B79E003E49DD /* PBXTextBookmark */;
+			3AA1C48F12F5B7AC003E49DD /* PBXTextBookmark */ = 3AA1C48F12F5B7AC003E49DD /* PBXTextBookmark */;
+			3AA1C49212F5B7CA003E49DD /* PBXTextBookmark */ = 3AA1C49212F5B7CA003E49DD /* PBXTextBookmark */;
+			3AA1C49512F5B7E6003E49DD /* PBXTextBookmark */ = 3AA1C49512F5B7E6003E49DD /* PBXTextBookmark */;
+			3AA1C4A012F5B86F003E49DD /* PBXTextBookmark */ = 3AA1C4A012F5B86F003E49DD /* PBXTextBookmark */;
+			3AA1C4A312F5B8B1003E49DD /* PBXTextBookmark */ = 3AA1C4A312F5B8B1003E49DD /* PBXTextBookmark */;
+			3AA1C4C012F5BC6F003E49DD /* PBXTextBookmark */ = 3AA1C4C012F5BC6F003E49DD /* PBXTextBookmark */;
+			3AA1C4C112F5BC6F003E49DD /* PBXTextBookmark */ = 3AA1C4C112F5BC6F003E49DD /* PBXTextBookmark */;
+			3AA1C4C612F5BCDC003E49DD /* PBXTextBookmark */ = 3AA1C4C612F5BCDC003E49DD /* PBXTextBookmark */;
+			3AA1C4CD12F5BD40003E49DD /* PBXTextBookmark */ = 3AA1C4CD12F5BD40003E49DD /* PBXTextBookmark */;
+			3AA1C4D112F5BD90003E49DD /* PBXTextBookmark */ = 3AA1C4D112F5BD90003E49DD /* PBXTextBookmark */;
+			3AAE753412F4A0C000BB0832 = 3AAE753412F4A0C000BB0832 /* PBXTextBookmark */;
+			3AAE75DC12F502A400BB0832 = 3AAE75DC12F502A400BB0832 /* PBXTextBookmark */;
+			3ABDABEB12F1D1EA00F2EDEF = 3ABDABEB12F1D1EA00F2EDEF /* PBXTextBookmark */;
+			3ABDADC412F247B900F2EDEF = 3ABDADC412F247B900F2EDEF /* PBXTextBookmark */;
+			3ABDADC512F247B900F2EDEF = 3ABDADC512F247B900F2EDEF /* PBXTextBookmark */;
+			3ABDB00012F3115A00F2EDEF = 3ABDB00012F3115A00F2EDEF /* PBXTextBookmark */;
+			3ABDB00212F3115A00F2EDEF = 3ABDB00212F3115A00F2EDEF /* PBXTextBookmark */;
+			3ABDB00412F3115A00F2EDEF = 3ABDB00412F3115A00F2EDEF /* PBXTextBookmark */;
+			3AE807E512F4406400616FE9 = 3AE807E512F4406400616FE9 /* PBXTextBookmark */;
+			3AE807E812F4406400616FE9 = 3AE807E812F4406400616FE9 /* PBXTextBookmark */;
+			3AE807E912F4406400616FE9 = 3AE807E912F4406400616FE9 /* PBXTextBookmark */;
+			3AE8080B12F4446F00616FE9 = 3AE8080B12F4446F00616FE9 /* PBXTextBookmark */;
+			3AE8080C12F4446F00616FE9 = 3AE8080C12F4446F00616FE9 /* PBXTextBookmark */;
+			3AE8080D12F4446F00616FE9 = 3AE8080D12F4446F00616FE9 /* PBXTextBookmark */;
+			3AE8082312F4479600616FE9 = 3AE8082312F4479600616FE9 /* PBXTextBookmark */;
+			3AE808CA12F46EB500616FE9 = 3AE808CA12F46EB500616FE9 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 3A022CF312E8990900F064EE /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	3A022CEA12E898FE00F064EE /* BioAudio */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = BioAudio;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	3A022CF312E8990900F064EE /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	3A022CF412E8990900F064EE /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	3A022CF512E8992B00F064EE /* BioAudio.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {753, 819}}";
+			sepNavSelRange = "{524, 0}";
+			sepNavVisRange = "{0, 992}";
+			sepNavWindowFrame = "{{15, 74}, {1342, 799}}";
+		};
+	};
+	3A022CF612E8992B00F064EE /* BioAudio.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {873, 6292}}";
+			sepNavSelRange = "{7349, 0}";
+			sepNavVisRange = "{5244, 1354}";
+			sepNavWindowFrame = "{{15, 74}, {1342, 799}}";
+		};
+	};
+	3A022DDF12E8D32800F064EE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022DE012E8D32800F064EE /* AudioComponent.h */;
+		name = "AudioComponent.h: 118";
+		rLen = 0;
+		rLoc = 5065;
+		rType = 0;
+		vrLen = 1983;
+		vrLoc = 3849;
+	};
+	3A022DE012E8D32800F064EE /* AudioComponent.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = AudioComponent.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/AudioUnit.framework/Headers/AudioComponent.h;
+		sourceTree = "<absolute>";
+	};
+	3A022E0112E8D96A00F064EE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022E0212E8D96A00F064EE /* AUGraph.h */;
+		name = "AUGraph.h: 520";
+		rLen = 89;
+		rLoc = 18551;
+		rType = 0;
+		vrLen = 1433;
+		vrLoc = 17859;
+	};
+	3A022E0212E8D96A00F064EE /* AUGraph.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = AUGraph.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AUGraph.h;
+		sourceTree = "<absolute>";
+	};
+	3A022E1412E8F08F00F064EE /* AUComponent.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = AUComponent.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/AudioUnit.framework/Headers/AUComponent.h;
+		sourceTree = "<absolute>";
+	};
+	3A022E3312EB40A800F064EE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022E3412EB40A800F064EE /* NSException.h */;
+		name = "NSException.h: 183";
+		rLen = 0;
+		rLoc = 6638;
+		rType = 0;
+		vrLen = 1640;
+		vrLoc = 5804;
+	};
+	3A022E3412EB40A800F064EE /* NSException.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = NSException.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSException.h;
+		sourceTree = "<absolute>";
+	};
+	3A022E4912EB606500F064EE /* MacTypes.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = MacTypes.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/MacTypes.h;
+		sourceTree = "<absolute>";
+	};
+	3A022FCE12EBBEA400F064EE /* types.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = types.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/sys/types.h;
+		sourceTree = "<absolute>";
+	};
+	3A022FD012EBBEA400F064EE /* _types.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = _types.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/i386/_types.h;
+		sourceTree = "<absolute>";
+	};
+	3A022FE912EBBF4C00F064EE /* CoreAudioTypes.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = CoreAudioTypes.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/CoreAudio.framework/Headers/CoreAudioTypes.h;
+		sourceTree = "<absolute>";
+	};
+	3A19B61B12F503CD00CB1867 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 221";
+		rLen = 0;
+		rLoc = 6431;
+		rType = 0;
+		vrLen = 1341;
+		vrLoc = 5779;
+	};
+	3A1EA7AB12ED74FE005AE738 /* BioAudio.m:10 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		currentMultipleMatches = (
+			3AA1C4B812F5BBAE003E49DD /* -[BioAudio remoteIOUnit] */,
+			3AA1C4B912F5BBAE003E49DD /* -[BioAudio setRemoteIOUnit:] */,
+		);
+		delayBeforeContinue = 0;
+		fileReference = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		functionName = "playbackCallback()";
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 10;
+		location = BioAudio;
+		modificationTime = 318094917.015371;
+		originalNumberOfMultipleMatches = 2;
+		state = 1;
+	};
+	3A1EA7BB12ED770A005AE738 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022E1412E8F08F00F064EE /* AUComponent.h */;
+		name = "AUComponent.h: 1363";
+		rLen = 0;
+		rLoc = 53809;
+		rType = 0;
+		vrLen = 1996;
+		vrLoc = 51270;
+	};
+	3A1EA7C612ED7B7B005AE738 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A1EA7C712ED7B7B005AE738 /* AudioUnitProperties.h */;
+		name = "AudioUnitProperties.h: 716";
+		rLen = 46;
+		rLoc = 36034;
+		rType = 0;
+		vrLen = 2027;
+		vrLoc = 12362;
+	};
+	3A1EA7C712ED7B7B005AE738 /* AudioUnitProperties.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = AudioUnitProperties.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/System/Library/Frameworks/AudioUnit.framework/Headers/AudioUnitProperties.h;
+		sourceTree = "<absolute>";
+	};
+	3A1EA81512ED8D97005AE738 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022FCE12EBBEA400F064EE /* types.h */;
+		name = "types.h: 230";
+		rLen = 15;
+		rLoc = 6985;
+		rType = 0;
+		vrLen = 818;
+		vrLoc = 6437;
+	};
+	3A1EA81612ED8D97005AE738 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022FD012EBBEA400F064EE /* _types.h */;
+		name = "_types.h: 96";
+		rLen = 0;
+		rLoc = 3778;
+		rType = 0;
+		vrLen = 1226;
+		vrLoc = 3277;
+	};
+	3A1EA83412ED90E2005AE738 /* OldBioAudio.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {756, 481}}";
+			sepNavSelRange = "{938, 0}";
+			sepNavVisRange = "{137, 801}";
+		};
+	};
+	3A1EA83512ED90E2005AE738 /* OldBioAudio.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1048, 4719}}";
+			sepNavSelRange = "{5179, 0}";
+			sepNavVisRange = "{3791, 966}";
+		};
+	};
+	3A1EAABA12EE3484005AE738 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A1EAABB12EE3484005AE738 /* stdio.h */;
+		name = "stdio.h: 276";
+		rLen = 72;
+		rLoc = 10427;
+		rType = 0;
+		vrLen = 1809;
+		vrLoc = 3871;
+	};
+	3A1EAABB12EE3484005AE738 /* stdio.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = stdio.h;
+		path = /Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator4.2.sdk/usr/include/stdio.h;
+		sourceTree = "<absolute>";
+	};
+	3A1EAAC012EE3484005AE738 /* float.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = float.h;
+		path = /usr/include/float.h;
+		sourceTree = "<absolute>";
+	};
+	3A53239412F5AF6900C4D4FA /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 221";
+		rLen = 0;
+		rLoc = 6431;
+		rType = 0;
+		vrLen = 1291;
+		vrLoc = 5827;
+	};
+	3AA1C42012F5B1A3003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 221";
+		rLen = 0;
+		rLoc = 6431;
+		rType = 0;
+		vrLen = 1265;
+		vrLoc = 5744;
+	};
+	3AA1C42D12F5B1C3003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 224";
+		rLen = 0;
+		rLoc = 6500;
+		rType = 0;
+		vrLen = 1270;
+		vrLoc = 5878;
+	};
+	3AA1C43012F5B1D6003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 231";
+		rLen = 0;
+		rLoc = 6626;
+		rType = 0;
+		vrLen = 1265;
+		vrLoc = 5878;
+	};
+	3AA1C43B12F5B1EF003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 231";
+		rLen = 0;
+		rLoc = 6626;
+		rType = 0;
+		vrLen = 1295;
+		vrLoc = 5878;
+	};
+	3AA1C43C12F5B1EF003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 231";
+		rLen = 0;
+		rLoc = 6626;
+		rType = 0;
+		vrLen = 1265;
+		vrLoc = 5878;
+	};
+	3AA1C44712F5B32E003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF512E8992B00F064EE /* BioAudio.h */;
+		name = "BioAudio.h: 29";
+		rLen = 0;
+		rLoc = 518;
+		rType = 0;
+		vrLen = 992;
+		vrLoc = 0;
+	};
+	3AA1C44812F5B32E003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 225";
+		rLen = 0;
+		rLoc = 6514;
+		rType = 0;
+		vrLen = 1295;
+		vrLoc = 5878;
+	};
+	3AA1C44912F5B32E003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 225";
+		rLen = 0;
+		rLoc = 6514;
+		rType = 0;
+		vrLen = 1172;
+		vrLoc = 6109;
+	};
+	3AA1C45512F5B48B003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 225";
+		rLen = 0;
+		rLoc = 6534;
+		rType = 0;
+		vrLen = 1175;
+		vrLoc = 6109;
+	};
+	3AA1C45C12F5B4EB003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 225";
+		rLen = 0;
+		rLoc = 6534;
+		rType = 0;
+		vrLen = 1173;
+		vrLoc = 6109;
+	};
+	3AA1C46012F5B4FD003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 225";
+		rLen = 0;
+		rLoc = 6534;
+		rType = 0;
+		vrLen = 1177;
+		vrLoc = 6109;
+	};
+	3AA1C46412F5B59B003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 225";
+		rLen = 0;
+		rLoc = 6534;
+		rType = 0;
+		vrLen = 1177;
+		vrLoc = 6109;
+	};
+	3AA1C46E12F5B66C003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 226";
+		rLen = 0;
+		rLoc = 6546;
+		rType = 0;
+		vrLen = 1161;
+		vrLoc = 6109;
+	};
+	3AA1C47412F5B6D8003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 226";
+		rLen = 0;
+		rLoc = 6546;
+		rType = 0;
+		vrLen = 1124;
+		vrLoc = 6109;
+	};
+	3AA1C47712F5B6F9003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 226";
+		rLen = 0;
+		rLoc = 6546;
+		rType = 0;
+		vrLen = 1125;
+		vrLoc = 6109;
+	};
+	3AA1C47A12F5B713003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 230";
+		rLen = 0;
+		rLoc = 6573;
+		rType = 0;
+		vrLen = 1125;
+		vrLoc = 6109;
+	};
+	3AA1C47D12F5B721003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 231";
+		rLen = 0;
+		rLoc = 6597;
+		rType = 0;
+		vrLen = 1125;
+		vrLoc = 6109;
+	};
+	3AA1C48012F5B734003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 232";
+		rLen = 0;
+		rLoc = 6608;
+		rType = 0;
+		vrLen = 1125;
+		vrLoc = 6109;
+	};
+	3AA1C48312F5B754003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 233";
+		rLen = 0;
+		rLoc = 6619;
+		rType = 0;
+		vrLen = 1238;
+		vrLoc = 6512;
+	};
+	3AA1C48612F5B76D003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 226";
+		rLen = 0;
+		rLoc = 6549;
+		rType = 0;
+		vrLen = 1244;
+		vrLoc = 6512;
+	};
+	3AA1C48912F5B780003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 226";
+		rLen = 0;
+		rLoc = 6514;
+		rType = 0;
+		vrLen = 1250;
+		vrLoc = 6512;
+	};
+	3AA1C48C12F5B79E003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 230";
+		rLen = 0;
+		rLoc = 6619;
+		rType = 0;
+		vrLen = 1245;
+		vrLoc = 6512;
+	};
+	3AA1C48F12F5B7AC003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 230";
+		rLen = 0;
+		rLoc = 6619;
+		rType = 0;
+		vrLen = 1247;
+		vrLoc = 6512;
+	};
+	3AA1C49212F5B7CA003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 225";
+		rLen = 0;
+		rLoc = 6543;
+		rType = 0;
+		vrLen = 1247;
+		vrLoc = 6512;
+	};
+	3AA1C49512F5B7E6003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 225";
+		rLen = 0;
+		rLoc = 6520;
+		rType = 0;
+		vrLen = 1262;
+		vrLoc = 6512;
+	};
+	3AA1C4A012F5B86F003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 257";
+		rLen = 0;
+		rLoc = 7268;
+		rType = 0;
+		vrLen = 1192;
+		vrLoc = 6834;
+	};
+	3AA1C4A312F5B8B1003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 232";
+		rLen = 0;
+		rLoc = 6623;
+		rType = 0;
+		vrLen = 1215;
+		vrLoc = 6116;
+	};
+	3AA1C4B812F5BBAE003E49DD /* -[BioAudio remoteIOUnit] */ = {
+		isa = PBXSymbolicBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 1;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		hitCount = 0;
+		ignoreCount = 0;
+		location = BioAudio;
+		modificationTime = 318094916.703257;
+		originalNumberOfMultipleMatches = 0;
+		parentBreakpoint = 3A1EA7AB12ED74FE005AE738 /* BioAudio.m:10 */;
+		state = 2;
+		symbolName = "-[BioAudio remoteIOUnit]";
+	};
+	3AA1C4B912F5BBAE003E49DD /* -[BioAudio setRemoteIOUnit:] */ = {
+		isa = PBXSymbolicBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 1;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		hitCount = 0;
+		ignoreCount = 0;
+		location = BioAudio;
+		modificationTime = 318094916.70337;
+		originalNumberOfMultipleMatches = 0;
+		parentBreakpoint = 3A1EA7AB12ED74FE005AE738 /* BioAudio.m:10 */;
+		state = 2;
+		symbolName = "-[BioAudio setRemoteIOUnit:]";
+	};
+	3AA1C4C012F5BC6F003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 246";
+		rLen = 0;
+		rLoc = 7127;
+		rType = 0;
+		vrLen = 1247;
+		vrLoc = 5361;
+	};
+	3AA1C4C112F5BC6F003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 246";
+		rLen = 0;
+		rLoc = 7127;
+		rType = 0;
+		vrLen = 1252;
+		vrLoc = 5361;
+	};
+	3AA1C4C612F5BCDC003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 246";
+		rLen = 0;
+		rLoc = 7127;
+		rType = 0;
+		vrLen = 1439;
+		vrLoc = 4975;
+	};
+	3AA1C4CD12F5BD40003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 251";
+		rLen = 0;
+		rLoc = 7349;
+		rType = 0;
+		vrLen = 1149;
+		vrLoc = 6415;
+	};
+	3AA1C4D112F5BD90003E49DD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 251";
+		rLen = 0;
+		rLoc = 7349;
+		rType = 0;
+		vrLen = 1337;
+		vrLoc = 5244;
+	};
+	3AA1C4D612F5BE20003E49DD /* BioAudio.m:177 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		functionName = "CopyInputRenderCallback()";
+		hitCount = 2;
+		ignoreCount = 0;
+		lineNumber = 177;
+		location = BioAudio;
+		modificationTime = 318094949.407076;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	3AA1C4D812F5BE25003E49DD /* BioAudio.m:186 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		functionName = "CopyInputRenderCallback()";
+		hitCount = 5;
+		ignoreCount = 0;
+		lineNumber = 186;
+		location = BioAudio;
+		modificationTime = 318094944.515249;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	3AA1C4DA12F5BE26003E49DD /* BioAudio.m:187 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		functionName = "CopyInputRenderCallback()";
+		hitCount = 5;
+		ignoreCount = 0;
+		lineNumber = 187;
+		location = BioAudio;
+		modificationTime = 318094945.090258;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	3AA1C4DC12F5BE32003E49DD /* BioAudio.m:182 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		functionName = "CopyInputRenderCallback()";
+		hitCount = 6;
+		ignoreCount = 0;
+		lineNumber = 182;
+		location = BioAudio;
+		modificationTime = 318094936.102487;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	3AA1C4DE12F5BE3B003E49DD /* BioAudio.m:181 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		functionName = "CopyInputRenderCallback()";
+		hitCount = 6;
+		ignoreCount = 0;
+		lineNumber = 181;
+		location = BioAudio;
+		modificationTime = 318094935.947533;
+		originalNumberOfMultipleMatches = 1;
+		state = 1;
+	};
+	3AAE753412F4A0C000BB0832 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A1EA83412ED90E2005AE738 /* OldBioAudio.h */;
+		name = "OldBioAudio.h: 37";
+		rLen = 0;
+		rLoc = 938;
+		rType = 0;
+		vrLen = 801;
+		vrLoc = 137;
+	};
+	3AAE75DC12F502A400BB0832 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF512E8992B00F064EE /* BioAudio.h */;
+		name = "BioAudio.h: 29";
+		rLen = 0;
+		rLoc = 518;
+		rType = 0;
+		vrLen = 990;
+		vrLoc = 0;
+	};
+	3ABDABEB12F1D1EA00F2EDEF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A1EAAC012EE3484005AE738 /* float.h */;
+		name = "float.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1092;
+		vrLoc = 6888;
+	};
+	3ABDADC412F247B900F2EDEF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022FE912EBBF4C00F064EE /* CoreAudioTypes.h */;
+		name = "CoreAudioTypes.h: 160";
+		rLen = 6;
+		rLoc = 4991;
+		rType = 0;
+		vrLen = 1122;
+		vrLoc = 3991;
+	};
+	3ABDADC512F247B900F2EDEF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022E4912EB606500F064EE /* MacTypes.h */;
+		name = "MacTypes.h: 109";
+		rLen = 5;
+		rLoc = 3302;
+		rType = 0;
+		vrLen = 1367;
+		vrLoc = 2471;
+	};
+	3ABDAE3912F2598D00F2EDEF /* BioAudioViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {756, 364}}";
+			sepNavSelRange = "{174, 0}";
+			sepNavVisRange = "{0, 634}";
+		};
+	};
+	3ABDAE3A12F2598D00F2EDEF /* BioAudioViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1139, 1105}}";
+			sepNavSelRange = "{1541, 0}";
+			sepNavVisRange = "{899, 1012}";
+		};
+	};
+	3ABDB00012F3115A00F2EDEF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3ABDB00112F3115A00F2EDEF /* AudioServices.h */;
+		name = "AudioServices.h: 696";
+		rLen = 39;
+		rLoc = 37330;
+		rType = 0;
+		vrLen = 2132;
+		vrLoc = 35251;
+	};
+	3ABDB00112F3115A00F2EDEF /* AudioServices.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = AudioServices.h;
+		path = /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/System/Library/Frameworks/AudioToolbox.framework/Headers/AudioServices.h;
+		sourceTree = "<absolute>";
+	};
+	3ABDB00212F3115A00F2EDEF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3ABDB00312F3115A00F2EDEF /* types.h */;
+		name = "types.h: 230";
+		rLen = 15;
+		rLoc = 6985;
+		rType = 0;
+		vrLen = 817;
+		vrLoc = 6438;
+	};
+	3ABDB00312F3115A00F2EDEF /* types.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = types.h;
+		path = /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include/sys/types.h;
+		sourceTree = "<absolute>";
+	};
+	3ABDB00412F3115A00F2EDEF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3ABDB00512F3115A00F2EDEF /* _types.h */;
+		name = "_types.h: 66";
+		rLen = 13;
+		rLoc = 2311;
+		rType = 0;
+		vrLen = 1193;
+		vrLoc = 1607;
+	};
+	3ABDB00512F3115A00F2EDEF /* _types.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = _types.h;
+		path = /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include/arm/_types.h;
+		sourceTree = "<absolute>";
+	};
+	3AE8079412F43D8200616FE9 /* FirAlgs.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {756, 4173}}";
+			sepNavSelRange = "{3968, 636}";
+			sepNavVisRange = "{4143, 958}";
+		};
+	};
+	3AE807E512F4406400616FE9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AE807E612F4406400616FE9 /* FirAlgs.c */;
+		name = "FirAlgs.c: 1";
+		rLen = 11029;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1026;
+		vrLoc = 0;
+	};
+	3AE807E612F4406400616FE9 /* FirAlgs.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = FirAlgs.c;
+		path = /Users/brennon/Downloads/FirAlgs.c;
+		sourceTree = "<absolute>";
+	};
+	3AE807E812F4406400616FE9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* BioAudioAppDelegate.h */;
+		name = "BioAudioAppDelegate.h: 20";
+		rLen = 0;
+		rLoc = 404;
+		rType = 0;
+		vrLen = 618;
+		vrLoc = 0;
+	};
+	3AE807E912F4406400616FE9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* BioAudioAppDelegate.m */;
+		name = "BioAudioAppDelegate.m: 39";
+		rLen = 0;
+		rLoc = 941;
+		rType = 0;
+		vrLen = 789;
+		vrLoc = 281;
+	};
+	3AE8080B12F4446F00616FE9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3ABDAE3A12F2598D00F2EDEF /* BioAudioViewController.m */;
+		name = "BioAudioViewController.m: 52";
+		rLen = 0;
+		rLoc = 1541;
+		rType = 0;
+		vrLen = 1012;
+		vrLoc = 899;
+	};
+	3AE8080C12F4446F00616FE9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3ABDAE3912F2598D00F2EDEF /* BioAudioViewController.h */;
+		name = "BioAudioViewController.h: 9";
+		rLen = 0;
+		rLoc = 174;
+		rType = 0;
+		vrLen = 634;
+		vrLoc = 0;
+	};
+	3AE8080D12F4446F00616FE9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A1EA83512ED90E2005AE738 /* OldBioAudio.m */;
+		name = "OldBioAudio.m: 153";
+		rLen = 0;
+		rLoc = 5179;
+		rType = 0;
+		vrLen = 966;
+		vrLoc = 3791;
+	};
+	3AE8082312F4479600616FE9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AE8082412F4479600616FE9 /* float.h */;
+		name = "float.h: 53";
+		rLen = 0;
+		rLoc = 1877;
+		rType = 0;
+		vrLen = 849;
+		vrLoc = 1567;
+	};
+	3AE8082412F4479600616FE9 /* float.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = float.h;
+		path = "/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/lib/gcc/arm-apple-darwin10/4.2.1/include/float.h";
+		sourceTree = "<absolute>";
+	};
+	3AE808CA12F46EB500616FE9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3AE8079412F43D8200616FE9 /* FirAlgs.c */;
+		name = "FirAlgs.c: 102";
+		rLen = 636;
+		rLoc = 3968;
+		rType = 0;
+		vrLen = 958;
+		vrLoc = 4143;
+	};
+}

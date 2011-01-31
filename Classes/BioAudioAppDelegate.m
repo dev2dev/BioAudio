@@ -61,6 +61,7 @@
 - (void)postFile
 {
 	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"image" ofType:@"jpg"];
+	NSLog(@"%@", filePath);
 	
 	[[self restClient] uploadFile:@"uploadedImage.jpg" toPath:@"/" fromPath:filePath];	
 	NSLog(@"-[BioAudioAppDelegate postFile]");

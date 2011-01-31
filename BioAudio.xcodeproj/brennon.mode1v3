@@ -252,7 +252,7 @@
 						<dict>
 							<key>PBXSmartGroupTreeModuleColumnWidthsKey</key>
 							<array>
-								<real>222</real>
+								<real>125</real>
 							</array>
 							<key>PBXSmartGroupTreeModuleColumnsKey_v4</key>
 							<array>
@@ -277,7 +277,7 @@
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {222, 760}}</string>
+							<string>{{0, 0}, {125, 561}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -289,19 +289,19 @@
 					<key>GeometryConfiguration</key>
 					<dict>
 						<key>Frame</key>
-						<string>{{0, 0}, {239, 778}}</string>
+						<string>{{0, 0}, {142, 579}}</string>
 						<key>GroupTreeTableConfiguration</key>
 						<array>
 							<string>MainColumn</string>
-							<real>222</real>
+							<real>125</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>22 59 983 819 0 0 1440 878 </string>
+						<string>7 258 988 620 0 0 1440 878 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
 					<key>Proportion</key>
-					<string>239pt</string>
+					<string>142pt</string>
 				</dict>
 				<dict>
 					<key>Dock</key>
@@ -326,7 +326,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>3A10498812F64BF1008F3F07</string>
+										<string>3A104A9012F66F5D008F3F07</string>
 										<key>history</key>
 										<array>
 											<string>3A022DDF12E8D32800F064EE</string>
@@ -353,16 +353,17 @@
 											<string>3AA1C5E212F5CE3A003E49DD</string>
 											<string>3A1047DB12F5D761008F3F07</string>
 											<string>3A10490312F62D82008F3F07</string>
-											<string>3A10493012F632E5008F3F07</string>
 											<string>3A10493112F632E5008F3F07</string>
 											<string>3A10493212F632E5008F3F07</string>
 											<string>3A10493312F632E5008F3F07</string>
 											<string>3A10493412F632E5008F3F07</string>
 											<string>3A10493512F632E5008F3F07</string>
 											<string>3A10493612F632E5008F3F07</string>
-											<string>3A10498512F64BF1008F3F07</string>
 											<string>3A10498612F64BF1008F3F07</string>
-											<string>3A10498712F64BF1008F3F07</string>
+											<string>3A1049AA12F650C5008F3F07</string>
+											<string>3A1049AB12F650C5008F3F07</string>
+											<string>3A104A6C12F66BF3008F3F07</string>
+											<string>3A104A6D12F66BF3008F3F07</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -374,14 +375,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {739, 719}}</string>
+								<string>{{0, 0}, {841, 520}}</string>
 								<key>RubberWindowFrame</key>
-								<string>22 59 983 819 0 0 1440 878 </string>
+								<string>7 258 988 620 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>719pt</string>
+							<string>520pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -394,9 +395,9 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 724}, {739, 54}}</string>
+								<string>{{0, 525}, {841, 54}}</string>
 								<key>RubberWindowFrame</key>
-								<string>22 59 983 819 0 0 1440 878 </string>
+								<string>7 258 988 620 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -405,7 +406,7 @@
 						</dict>
 					</array>
 					<key>Proportion</key>
-					<string>739pt</string>
+					<string>841pt</string>
 				</dict>
 			</array>
 			<key>Name</key>
@@ -560,7 +561,7 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>3A10498912F64BF1008F3F07</string>
+		<string>3A104A9112F66F5D008F3F07</string>
 		<string>3A1047E012F5D761008F3F07</string>
 		<string>3A1047D312F5D6DA008F3F07</string>
 		<string>1CD10A99069EF8BA00B06720</string>
@@ -569,7 +570,7 @@
 		<string>/Users/brennon/Development/BioAudio/BioAudio.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>22 59 983 819 0 0 1440 878 </string>
+	<string>7 258 988 620 0 0 1440 878 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -585,8 +586,6 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -609,6 +608,8 @@
 							<string>361pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>

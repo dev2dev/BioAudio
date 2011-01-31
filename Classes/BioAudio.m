@@ -121,6 +121,8 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 								inNumberFrames,
 								ioData);
 	
+	
+	NSLog(@"CopyInputRenderCallback(), error: %d", renderErr);
 	// Step through each sample
 	AudioSampleType sample = 0;
 	double doubleSample = 0.0F;
@@ -129,7 +131,7 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 	while (currentFrame < inNumberFrames) {		
 		// copy sample to buffer -- only concerned with first channel right now
 		memcpy(&sample, buf.mData + (currentFrame * 10), sizeof(AudioSampleType));
-
+/*
 		// Threshold each sample to +/- 32767
 		if (sample > 0) {
 			doubleSample = 1.0F;
@@ -154,6 +156,7 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 			*pz = *(pz - 1);
 			pz--;
 		}
+*/		
 /*		
 		// Multiply by sine waves each signal by sine wave
 
@@ -246,13 +249,13 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 		}
 */
 //		NSLog(@"%4.4f\t\t\t\t\t%4.4f", df1Accum, df2Accum);
-		AudioSampleType ch1Out = (SInt16)(accumulator * 32767.0F);		
+//		AudioSampleType ch1Out = (SInt16)(accumulator * 32767.0F);
 //		AudioSampleType ch2Out = (SInt16)(df2Accum * 32767.0F);
 				
 //		lo_send(effectState->outAddress, "", "i", ch1Out);
 		
-		memcpy(buf.mData + (currentFrame * 10), &ch1Out, sizeof(AudioSampleType));
-		memcpy(buf.mData + (currentFrame * 10) + 2, &ch1Out, sizeof(AudioSampleType));
+		memcpy(buf.mData + (currentFrame * 10), &sample, sizeof(AudioSampleType));
+		memcpy(buf.mData + (currentFrame * 10) + 2, &sample, sizeof(AudioSampleType));
 
 		currentFrame++;
 	}	
@@ -260,7 +263,47 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 	return noErr;
 }
 
-
+OSStatus OutputRenderCallback (void *							inRefCon,
+								  AudioUnitRenderActionFlags *		ioActionFlags,
+								  const AudioTimeStamp *			inTimeStamp,
+								  UInt32							inBusNumber,
+								  UInt32							inNumberFrames,
+								  AudioBufferList *					ioData) {
+	
+	EffectState *effectState = (EffectState *)inRefCon;
+	AudioUnit rioUnit = effectState->rioUnit;
+	OSStatus renderErr = noErr;
+	UInt32 bus1 = 1;
+	
+	// Ask Remote I/O unit to render samples into ioData buffer
+	renderErr = AudioUnitRender(rioUnit,
+								ioActionFlags,
+								inTimeStamp,
+								bus1,
+								inNumberFrames,
+								ioData);
+	
+	/*
+	// Step through each sample
+	AudioSampleType sample = 0;
+	double doubleSample = 0.0F;
+	AudioBuffer buf = ioData->mBuffers[0];
+	int currentFrame = 0;
+	while (currentFrame < inNumberFrames) {		
+		// copy sample to buffer -- only concerned with first channel right now
+		memcpy(&sample, buf.mData + (currentFrame * 10), sizeof(AudioSampleType));
+		
+		
+		//		memcpy(buf.mData + (currentFrame * 10), &ch1Out, sizeof(AudioSampleType));
+		//		memcpy(buf.mData + (currentFrame * 10) + 2, &ch1Out, sizeof(AudioSampleType));
+		
+		currentFrame++;
+	}	
+	*/
+//	NSLog(@"OutputRenderCallback(), error: %d", renderErr);
+	
+	return noErr;
+}
 
 #pragma mark direct RIO use
 
@@ -280,6 +323,7 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 	setupErr = AudioComponentInstanceNew(rioComponent, &remoteIOUnit);
 	NSAssert (setupErr == noErr, @"Couldn't get Remote I/O unit instance");
 	
+
 	// set up the rio unit for playback
 	UInt32 oneFlag = 1;
 	AudioUnitElement bus0 = 0;
@@ -302,20 +346,6 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 									sizeof(oneFlag));
 	NSAssert (setupErr == noErr, @"Couldn't enable Remote I/O input");
 	
-	/*
-	 // debug - investigate the input asbd
-	 AudioStreamBasicDescription hwInASBD;
-	 UInt32 asbdSize = sizeof (hwInASBD);
-	 setupErr = 
-	 AudioUnitGetProperty(remoteIOUnit,
-	 kAudioUnitProperty_StreamFormat,
-	 kAudioUnitScope_Input,
-	 bus1,
-	 &hwInASBD,
-	 &asbdSize);
-	 NSLog (@"inspected input ASBD");
-	 */
-	
 	// setup an asbd in the iphone canonical format
 	AudioStreamBasicDescription myASBD;
 	memset (&myASBD, 0, sizeof (myASBD));
@@ -328,9 +358,7 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 	myASBD.mChannelsPerFrame = 5;
 	myASBD.mBitsPerChannel = 16;
 	
-	/*
-	 // set format for output (bus 0) on rio's input scope
-	 */
+	// set format for output (bus 0) on rio's input scope
 	setupErr =
 	AudioUnitSetProperty (remoteIOUnit,
 						  kAudioUnitProperty_StreamFormat,
@@ -339,7 +367,6 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 						  &myASBD,
 						  sizeof (myASBD));
 	NSAssert (setupErr == noErr, @"Couldn't set ASBD for Remote I/O on input scope / bus 0");
-	
 	
 	// set asbd for mic input
 	setupErr =
@@ -365,11 +392,26 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 	AudioUnitSetProperty(remoteIOUnit, 
 						 kAudioUnitProperty_SetRenderCallback,
 						 kAudioUnitScope_Global,
-						 bus0,
+						 bus1,
 						 &callbackStruct,
 						 sizeof (callbackStruct));
 	NSAssert (setupErr == noErr, @"Couldn't set Remote I/O render callback on bus 0");
+
+	/*
+	// set callback method
+	AURenderCallbackStruct outputCallbackStruct;
+	outputCallbackStruct.inputProc = OutputRenderCallback; // callback function
+	outputCallbackStruct.inputProcRefCon = &effectState;
 	
+	setupErr = 
+	AudioUnitSetProperty(remoteIOUnit, 
+						 kAudioUnitProperty_SetRenderCallback,
+						 kAudioUnitScope_Global,
+						 bus0,
+						 &outputCallbackStruct,
+						 sizeof (outputCallbackStruct));
+	NSAssert (setupErr == noErr, @"Couldn't set Remote I/O render callback on bus 0");
+	*/
 	
 	setupErr =	AudioUnitInitialize(remoteIOUnit);
 	NSAssert (setupErr == noErr, @"Couldn't initialize Remote I/O unit");

@@ -265,19 +265,13 @@
 							<array>
 								<string>29B97314FDCFA39411CA2CEA</string>
 								<string>080E96DDFE201D6D7F000001</string>
-								<string>3A10482712F6187A008F3F07</string>
 								<string>29B97315FDCFA39411CA2CEA</string>
 								<string>29B97317FDCFA39411CA2CEA</string>
-								<string>29B97323FDCFA39411CA2CEA</string>
-								<string>19C28FACFE9D520D11CA2CBB</string>
-								<string>1C37FBAC04509CD000000102</string>
-								<string>3A1046ED12F5CE45008F3F07</string>
-								<string>3A10473512F5D051008F3F07</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>31</integer>
+									<integer>7</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
@@ -320,7 +314,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>BioAudioAppDelegate.m</string>
+								<string>BioAudio.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -328,11 +322,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>BioAudioAppDelegate.m</string>
+										<string>BioAudio.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>3A10494412F637E3008F3F07</string>
+										<string>3A10498812F64BF1008F3F07</string>
 										<key>history</key>
 										<array>
 											<string>3A022DDF12E8D32800F064EE</string>
@@ -358,8 +352,6 @@
 											<string>3AA1C5D112F5CB11003E49DD</string>
 											<string>3AA1C5E212F5CE3A003E49DD</string>
 											<string>3A1047DB12F5D761008F3F07</string>
-											<string>3A1048E212F627E0008F3F07</string>
-											<string>3A1048E312F627E0008F3F07</string>
 											<string>3A10490312F62D82008F3F07</string>
 											<string>3A10493012F632E5008F3F07</string>
 											<string>3A10493112F632E5008F3F07</string>
@@ -368,7 +360,9 @@
 											<string>3A10493412F632E5008F3F07</string>
 											<string>3A10493512F632E5008F3F07</string>
 											<string>3A10493612F632E5008F3F07</string>
-											<string>3A10493712F632E5008F3F07</string>
+											<string>3A10498512F64BF1008F3F07</string>
+											<string>3A10498612F64BF1008F3F07</string>
+											<string>3A10498712F64BF1008F3F07</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -566,12 +560,12 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>3A10494512F637E3008F3F07</string>
+		<string>3A10498912F64BF1008F3F07</string>
 		<string>3A1047E012F5D761008F3F07</string>
 		<string>3A1047D312F5D6DA008F3F07</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>3A022D3412E8A74600F064EE</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/brennon/Development/BioAudio/BioAudio.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -948,7 +942,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

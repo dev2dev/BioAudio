@@ -12,7 +12,7 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1965, 1963}}";
 			sepNavSelRange = "{1624, 0}";
-			sepNavVisRange = "{1407, 1635}";
+			sepNavVisRange = "{1216, 1308}";
 			sepNavWindowFrame = "{{61, 32}, {1342, 799}}";
 		};
 	};
@@ -31,11 +31,11 @@
 			1D6058900D05DD3D006BFB54 /* BioAudio */,
 		);
 		breakpoints = (
-			3AA1C4D612F5BE20003E49DD /* BioAudio.m:178 */,
-			3AA1C4D812F5BE25003E49DD /* BioAudio.m:186 */,
-			3AA1C4DA12F5BE26003E49DD /* BioAudio.m:187 */,
-			3AA1C4DC12F5BE32003E49DD /* BioAudio.m:182 */,
-			3AA1C4DE12F5BE3B003E49DD /* BioAudio.m:181 */,
+			3AA1C4D612F5BE20003E49DD /* BioAudio.m:181 */,
+			3AA1C4D812F5BE25003E49DD /* BioAudio.m:189 */,
+			3AA1C4DA12F5BE26003E49DD /* BioAudio.m:190 */,
+			3AA1C4DC12F5BE32003E49DD /* BioAudio.m:185 */,
+			3AA1C4DE12F5BE3B003E49DD /* BioAudio.m:184 */,
 		);
 		codeSenseManager = 3A022CF412E8990900F064EE /* Code sense */;
 		executables = (
@@ -177,6 +177,10 @@
 			3A10493E12F633B9008F3F07 /* PBXTextBookmark */ = 3A10493E12F633B9008F3F07 /* PBXTextBookmark */;
 			3A10494312F636E9008F3F07 /* PBXTextBookmark */ = 3A10494312F636E9008F3F07 /* PBXTextBookmark */;
 			3A10494412F637E3008F3F07 /* PBXTextBookmark */ = 3A10494412F637E3008F3F07 /* PBXTextBookmark */;
+			3A10498512F64BF1008F3F07 /* PBXTextBookmark */ = 3A10498512F64BF1008F3F07 /* PBXTextBookmark */;
+			3A10498612F64BF1008F3F07 /* PBXTextBookmark */ = 3A10498612F64BF1008F3F07 /* PBXTextBookmark */;
+			3A10498712F64BF1008F3F07 /* PBXTextBookmark */ = 3A10498712F64BF1008F3F07 /* PBXTextBookmark */;
+			3A10498812F64BF1008F3F07 /* PBXTextBookmark */ = 3A10498812F64BF1008F3F07 /* PBXTextBookmark */;
 			3A1EA7BB12ED770A005AE738 = 3A1EA7BB12ED770A005AE738 /* PBXTextBookmark */;
 			3A1EA7C612ED7B7B005AE738 = 3A1EA7C612ED7B7B005AE738 /* PBXTextBookmark */;
 			3A1EA81512ED8D97005AE738 = 3A1EA81512ED8D97005AE738 /* PBXTextBookmark */;
@@ -258,15 +262,15 @@
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {678, 806}}";
 			sepNavSelRange = "{1051, 0}";
-			sepNavVisRange = "{136, 956}";
+			sepNavVisRange = "{199, 898}";
 			sepNavWindowFrame = "{{15, 74}, {1342, 799}}";
 		};
 	};
 	3A022CF612E8992B00F064EE /* BioAudio.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1379, 6422}}";
-			sepNavSelRange = "{5788, 0}";
-			sepNavVisRange = "{5674, 608}";
+			sepNavIntBoundsRect = "{{0, 0}, {678, 7020}}";
+			sepNavSelRange = "{7520, 0}";
+			sepNavVisRange = "{6968, 1514}";
 			sepNavWindowFrame = "{{15, 74}, {1342, 799}}";
 		};
 	};
@@ -450,7 +454,7 @@
 		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
 		fallbackIsa = XCBuildMessageTextBookmark;
 		rLen = 1;
-		rLoc = 180;
+		rLoc = 183;
 		rType = 1;
 	};
 	3A1047BA12F5D3A2008F3F07 /* PBXTextBookmark */ = {
@@ -458,7 +462,7 @@
 		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
 		name = "BioAudio.m: 183";
 		rLen = 0;
-		rLoc = 5600;
+		rLoc = 5669;
 		rType = 0;
 		vrLen = 708;
 		vrLoc = 5198;
@@ -469,7 +473,7 @@
 		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
 		fallbackIsa = XCBuildMessageTextBookmark;
 		rLen = 1;
-		rLoc = 180;
+		rLoc = 183;
 		rType = 1;
 	};
 	3A1047C312F5D3D7008F3F07 /* PBXTextBookmark */ = {
@@ -477,7 +481,7 @@
 		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
 		name = "BioAudio.m: 183";
 		rLen = 0;
-		rLoc = 5600;
+		rLoc = 5669;
 		rType = 0;
 		vrLen = 1380;
 		vrLoc = 4784;
@@ -487,7 +491,7 @@
 		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
 		name = "BioAudio.m: 460";
 		rLen = 0;
-		rLoc = 13951;
+		rLoc = 15447;
 		rType = 0;
 		vrLen = 1575;
 		vrLoc = 12612;
@@ -497,7 +501,7 @@
 		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
 		name = "BioAudio.m: 460";
 		rLen = 0;
-		rLoc = 13951;
+		rLoc = 15447;
 		rType = 0;
 		vrLen = 1578;
 		vrLoc = 12612;
@@ -507,7 +511,7 @@
 		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
 		name = "BioAudio.m: 461";
 		rLen = 0;
-		rLoc = 13951;
+		rLoc = 15447;
 		rType = 0;
 		vrLen = 1582;
 		vrLoc = 12612;
@@ -533,7 +537,7 @@
 		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
 		name = "BioAudio.m: 460";
 		rLen = 0;
-		rLoc = 13951;
+		rLoc = 15447;
 		rType = 0;
 		vrLen = 1600;
 		vrLoc = 12612;
@@ -543,7 +547,7 @@
 		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
 		name = "BioAudio.m: 460";
 		rLen = 0;
-		rLoc = 13951;
+		rLoc = 15447;
 		rType = 0;
 		vrLen = 1605;
 		vrLoc = 12612;
@@ -553,7 +557,7 @@
 		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
 		name = "BioAudio.m: 461";
 		rLen = 0;
-		rLoc = 13951;
+		rLoc = 15447;
 		rType = 0;
 		vrLen = 1626;
 		vrLoc = 12612;
@@ -563,7 +567,7 @@
 		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
 		name = "BioAudio.m: 467";
 		rLen = 0;
-		rLoc = 13975;
+		rLoc = 15471;
 		rType = 0;
 		vrLen = 1518;
 		vrLoc = 12752;
@@ -573,7 +577,7 @@
 		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
 		name = "BioAudio.m: 467";
 		rLen = 0;
-		rLoc = 13975;
+		rLoc = 15471;
 		rType = 0;
 		vrLen = 1524;
 		vrLoc = 12752;
@@ -593,7 +597,7 @@
 		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
 		name = "BioAudio.m: 254";
 		rLen = 0;
-		rLoc = 7298;
+		rLoc = 7367;
 		rType = 0;
 		vrLen = 2058;
 		vrLoc = 10714;
@@ -603,7 +607,7 @@
 		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
 		name = "BioAudio.m: 253";
 		rLen = 0;
-		rLoc = 7317;
+		rLoc = 7386;
 		rType = 0;
 		vrLen = 1184;
 		vrLoc = 6508;
@@ -613,7 +617,7 @@
 		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
 		name = "BioAudio.m: 254";
 		rLen = 0;
-		rLoc = 7315;
+		rLoc = 7384;
 		rType = 0;
 		vrLen = 1389;
 		vrLoc = 6674;
@@ -623,7 +627,7 @@
 		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
 		name = "BioAudio.m: 183";
 		rLen = 0;
-		rLoc = 5600;
+		rLoc = 5669;
 		rType = 0;
 		vrLen = 687;
 		vrLoc = 5493;
@@ -633,7 +637,7 @@
 		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
 		name = "BioAudio.m: 252";
 		rLen = 0;
-		rLoc = 7252;
+		rLoc = 7321;
 		rType = 0;
 		vrLen = 1566;
 		vrLoc = 6775;
@@ -671,7 +675,7 @@
 		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
 		name = "BioAudio.m: 251";
 		rLen = 0;
-		rLoc = 7135;
+		rLoc = 7206;
 		rType = 0;
 		vrLen = 1326;
 		vrLoc = 6618;
@@ -731,7 +735,7 @@
 		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
 		name = "BioAudio.m: 191";
 		rLen = 0;
-		rLoc = 5788;
+		rLoc = 5857;
 		rType = 0;
 		vrLen = 565;
 		vrLoc = 5727;
@@ -741,7 +745,7 @@
 		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
 		name = "BioAudio.m: 189";
 		rLen = 0;
-		rLoc = 5788;
+		rLoc = 5857;
 		rType = 0;
 		vrLen = 608;
 		vrLoc = 5674;
@@ -781,7 +785,7 @@
 		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
 		name = "BioAudio.m: 255";
 		rLen = 0;
-		rLoc = 7448;
+		rLoc = 7514;
 		rType = 0;
 		vrLen = 1525;
 		vrLoc = 6832;
@@ -981,7 +985,7 @@
 		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
 		name = "BioAudio.m: 189";
 		rLen = 0;
-		rLoc = 5788;
+		rLoc = 5857;
 		rType = 0;
 		vrLen = 608;
 		vrLoc = 5674;
@@ -1080,7 +1084,7 @@
 		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
 		name = "BioAudio.m: 189";
 		rLen = 0;
-		rLoc = 5788;
+		rLoc = 5857;
 		rType = 0;
 		vrLen = 608;
 		vrLoc = 5674;
@@ -1090,7 +1094,7 @@
 		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
 		name = "BioAudio.m: 189";
 		rLen = 0;
-		rLoc = 5788;
+		rLoc = 5857;
 		rType = 0;
 		vrLen = 608;
 		vrLoc = 5674;
@@ -1104,6 +1108,46 @@
 		rType = 0;
 		vrLen = 1635;
 		vrLoc = 1407;
+	};
+	3A10498512F64BF1008F3F07 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* BioAudioAppDelegate.m */;
+		name = "BioAudioAppDelegate.m: 65";
+		rLen = 0;
+		rLoc = 1624;
+		rType = 0;
+		vrLen = 1308;
+		vrLoc = 1216;
+	};
+	3A10498612F64BF1008F3F07 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF512E8992B00F064EE /* BioAudio.h */;
+		name = "BioAudio.h: 57";
+		rLen = 0;
+		rLoc = 1051;
+		rType = 0;
+		vrLen = 898;
+		vrLoc = 199;
+	};
+	3A10498712F64BF1008F3F07 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 410";
+		rLen = 0;
+		rLoc = 12243;
+		rType = 0;
+		vrLen = 1670;
+		vrLoc = 10676;
+	};
+	3A10498812F64BF1008F3F07 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 3A022CF612E8992B00F064EE /* BioAudio.m */;
+		name = "BioAudio.m: 258";
+		rLen = 0;
+		rLoc = 7520;
+		rType = 0;
+		vrLen = 1514;
+		vrLoc = 6968;
 	};
 	3A1EA7BB12ED770A005AE738 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -1190,7 +1234,7 @@
 		path = /usr/include/float.h;
 		sourceTree = "<absolute>";
 	};
-	3AA1C4D612F5BE20003E49DD /* BioAudio.m:178 */ = {
+	3AA1C4D612F5BE20003E49DD /* BioAudio.m:181 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -1202,13 +1246,13 @@
 		functionName = "CopyInputRenderCallback()";
 		hitCount = 2;
 		ignoreCount = 0;
-		lineNumber = 178;
+		lineNumber = 181;
 		location = BioAudio;
 		modificationTime = 318094949.407076;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
-	3AA1C4D812F5BE25003E49DD /* BioAudio.m:186 */ = {
+	3AA1C4D812F5BE25003E49DD /* BioAudio.m:189 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -1220,13 +1264,13 @@
 		functionName = "CopyInputRenderCallback()";
 		hitCount = 5;
 		ignoreCount = 0;
-		lineNumber = 186;
+		lineNumber = 189;
 		location = BioAudio;
 		modificationTime = 318094944.515249;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
-	3AA1C4DA12F5BE26003E49DD /* BioAudio.m:187 */ = {
+	3AA1C4DA12F5BE26003E49DD /* BioAudio.m:190 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -1238,13 +1282,13 @@
 		functionName = "CopyInputRenderCallback()";
 		hitCount = 5;
 		ignoreCount = 0;
-		lineNumber = 187;
+		lineNumber = 190;
 		location = BioAudio;
 		modificationTime = 318094945.090258;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
-	3AA1C4DC12F5BE32003E49DD /* BioAudio.m:182 */ = {
+	3AA1C4DC12F5BE32003E49DD /* BioAudio.m:185 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -1256,13 +1300,13 @@
 		functionName = "CopyInputRenderCallback()";
 		hitCount = 6;
 		ignoreCount = 0;
-		lineNumber = 182;
+		lineNumber = 185;
 		location = BioAudio;
 		modificationTime = 318094936.102487;
 		originalNumberOfMultipleMatches = 1;
 		state = 1;
 	};
-	3AA1C4DE12F5BE3B003E49DD /* BioAudio.m:181 */ = {
+	3AA1C4DE12F5BE3B003E49DD /* BioAudio.m:184 */ = {
 		isa = PBXFileBreakpoint;
 		actions = (
 		);
@@ -1274,7 +1318,7 @@
 		functionName = "CopyInputRenderCallback()";
 		hitCount = 6;
 		ignoreCount = 0;
-		lineNumber = 181;
+		lineNumber = 184;
 		location = BioAudio;
 		modificationTime = 318094935.947533;
 		originalNumberOfMultipleMatches = 1;

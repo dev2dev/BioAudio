@@ -10,18 +10,16 @@
 
 
 @interface BioAudioViewController : UIViewController {
-	IBOutlet UILabel *freqLabel;
-	IBOutlet UILabel *gainLabel;
-	IBOutlet UISlider *freqSlider;
-	IBOutlet UISlider *gainSlider;
+	IBOutlet UIButton *startAudioButton;
+	IBOutlet UIButton *stopAudioButton;
 }
 
-- (IBAction)freqChanged:(id)sender;
-- (IBAction)gainChanged:(id)sender;
+- (IBAction)didPressLink;
+- (IBAction)didPressPostFile;
+- (IBAction)startAudio;
+- (IBAction)stopAudio;
 
-@property (retain) IBOutlet UILabel *freqLabel;
-@property (retain) IBOutlet UILabel *gainLabel;
-@property (retain) IBOutlet UISlider *freqSlider;
-@property (retain) IBOutlet UISlider *gainSlider;
+@property (retain) IBOutlet UIButton *startAudioButton;
+@property (retain) IBOutlet UIButton *stopAudioButton;
 
 @end

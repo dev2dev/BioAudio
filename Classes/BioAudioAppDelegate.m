@@ -33,6 +33,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+	
+	// Initiate Dropbox session
+	dbSession = 
+	[[[DBSession alloc] initWithConsumerKey:@"c47y0gdndyrktxb" consumerSecret:@"ndmlc4pxcmtn3u2"] autorelease];
+    [DBSession setSharedSession:dbSession]; 
     
 	// Add view controller and view
 	baViewController = [[BioAudioViewController alloc] init];
@@ -42,6 +47,52 @@
 	[self.bioAudio setup];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (DBRestClient *)restClient {
+	if (!restClient) {
+		restClient = 
+		[[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
+		restClient.delegate = self;
+	}
+	return restClient;
+}
+
+- (void)postFile
+{
+	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"image" ofType:@"jpg"];
+	
+	[[self restClient] uploadFile:@"uploadedImage.jpg" toPath:@"/" fromPath:filePath];	
+	NSLog(@"-[BioAudioAppDelegate postFile]");
+}
+
+- (void)restClient:(DBRestClient*)client 
+	loadedMetadata:(DBMetadata*)metadata {
+	
+	NSLog(@"Loaded metadata!");
+}
+
+- (void)restClient:(DBRestClient*)client 
+metadataUnchangedAtPath:(NSString*)path {
+	
+	NSLog(@"Metadata unchanged!");
+}
+
+- (void)restClient:(DBRestClient*)client 
+loadMetadataFailedWithError:(NSError*)error {
+	
+	NSLog(@"Error loading metadata: %@", error);
+}
+
+- (void)restClient:(DBRestClient*)client uploadProgress:(CGFloat)progress forFile:(NSString*)destPath from:(NSString*)srcPath;
+{
+	if (progress < 1.0) {
+		[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	} else {
+		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	}
+
+	NSLog(@"Uploading file... %2.2f\%", progress * 100);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

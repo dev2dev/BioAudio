@@ -7,12 +7,13 @@
 //
 
 #import "BioAudio.h"
+#import <lo/lo.h>
+
 //#include <float.h>
 
 @implementation BioAudio
 
 @synthesize remoteIOUnit;
-@synthesize oscMgr;
 
 
 #pragma mark init/dealloc
@@ -32,6 +33,7 @@
 #pragma mark Setup Audio Session
 - (void)setUpAudioSession
 {
+
 	// Initialise Audio Session
 	OSStatus setUpAudioSessionErr=
 	AudioSessionInitialize (
@@ -124,8 +126,7 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 	double doubleSample = 0.0F;
 	AudioBuffer buf = ioData->mBuffers[0];
 	int currentFrame = 0;
-	while (currentFrame < inNumberFrames) {
-		
+	while (currentFrame < inNumberFrames) {		
 		// copy sample to buffer -- only concerned with first channel right now
 		memcpy(&sample, buf.mData + (currentFrame * 10), sizeof(AudioSampleType));
 
@@ -153,7 +154,7 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 			*pz = *(pz - 1);
 			pz--;
 		}
-		
+/*		
 		// Multiply by sine waves each signal by sine wave
 
 		double ch1Signal, ch2Signal;
@@ -172,13 +173,12 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 			effectState->ch2Phase = effectState->ch2Phase - M_PI * 5.0F;
 		}
 		
-		/* Original IIR Filter */
+		// Original IIR Filter
 		demodFilter df1 = effectState->dmFilter1;
 		df1.zx[0] = ch1Signal;
 		double df1Accum = 0.0F;
 		
 		for (int i = 0; i < (df1.taps / 2); i++) {
-			int wait = 0;
 			df1Accum += (df1.hx[i] * df1.zx[i]) + (df1.hy[i] * df1.zy[i]);
 		}
 		
@@ -199,6 +199,7 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 			df2.zx[j] = df2.zx[j-1];
 			df2.zy[j] = df2.zy[j-1];
 		}
+*/
 /*		
 		*df1.zx = ch1Signal;
 		double dfAccum1 = 0.0F;
@@ -245,11 +246,13 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 		}
 */
 //		NSLog(@"%4.4f\t\t\t\t\t%4.4f", df1Accum, df2Accum);
-		AudioSampleType ch1Out = (SInt16)(df1Accum * 32767.0F);		
-		AudioSampleType ch2Out = (SInt16)(df2Accum * 32767.0F);
+		AudioSampleType ch1Out = (SInt16)(accumulator * 32767.0F);		
+//		AudioSampleType ch2Out = (SInt16)(df2Accum * 32767.0F);
+				
+//		lo_send(effectState->outAddress, "", "i", ch1Out);
 		
 		memcpy(buf.mData + (currentFrame * 10), &ch1Out, sizeof(AudioSampleType));
-		memcpy(buf.mData + (currentFrame * 10) + 2, &ch2Out, sizeof(AudioSampleType));
+		memcpy(buf.mData + (currentFrame * 10) + 2, &ch1Out, sizeof(AudioSampleType));
 
 		currentFrame++;
 	}	
@@ -377,6 +380,8 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 	[self setUpAudioSession];
 	[self setUpAUConnectionsWithRenderCallback];
 	
+	effectState.outAddress = lo_address_new_with_proto(LO_UDP, "192.168.1.64", "7400");
+	
 	memset(&effectState.lpFilter1.hx, 0, sizeof(effectState.lpFilter1.hx));
 	memset(&effectState.lpFilter1.z, 0, sizeof(effectState.lpFilter1.z));
 	memset(&effectState.dmFilter1.hx, 0, sizeof(effectState.dmFilter1.hx));
@@ -449,23 +454,28 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 	effectState.dmFilter1.taps = DEMOD_X_TAPS + DEMOD_Y_TAPS;
 	effectState.dmFilter2.state = 0;
 	effectState.dmFilter2.taps = DEMOD_X_TAPS + DEMOD_Y_TAPS;
-	
+}
+
+- (void)startAudio
+{
+	NSLog(@"-[BioAudio startAudio]");
 	OSStatus startErr = noErr;
 	startErr = AudioOutputUnitStart (remoteIOUnit);
 	
 	NSAssert (startErr == noErr, @"Couldn't start Remote I/O unit");
 	
-	NSLog (@"-[BioAudio setup] -- started Remote I/O unit");
+	NSLog (@"-[BioAudio startAudio] -- started Remote I/O unit");
 }
 
-- (void)setGain:(float)gain
+- (void)stopAudio
 {
-	effectState.gain = gain;
-}
-
-- (void)setFreq:(float)freq
-{
-	effectState.frequency = freq;
+	NSLog(@"-[BioAudio stopAudio]");
+	OSStatus stopErr = noErr;
+	stopErr = AudioOutputUnitStop (remoteIOUnit);
+	
+	NSAssert (stopErr == noErr, @"Couldn't stop Remote I/O unit");
+	
+	NSLog (@"-[BioAudio stopAudio] -- stopped Remote I/O unit");
 }
 
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
-#import "VVOSC.h"
+#import <lo/lo.h>
 
 #define LOWPASS_TAPS 18
 #define DEMOD_X_TAPS 6
@@ -42,6 +42,7 @@ typedef struct {
 	double ch2PhaseIncrement;
 	double ch1Phase;
 	double ch2Phase;
+	lo_address outAddress;
 } EffectState;
 
 @interface BioAudio : NSObject {	
@@ -49,14 +50,12 @@ typedef struct {
 	AudioUnit	remoteIOUnit;
 	Float64 hardwareSampleRate;
 	EffectState effectState;
-	OSCManager *oscMgr;
 }
 
 @property (nonatomic) AudioUnit	remoteIOUnit;
-@property (retain) OSCManager *oscMgr;
 
 - (void)setup;
-- (void)setGain:(float)gain;
-- (void)setFreq:(float)freq;
+- (void)startAudio;
+- (void)stopAudio;
 
 @end

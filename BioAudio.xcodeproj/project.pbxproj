@@ -15,7 +15,6 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		3A022CF212E8990800F064EE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A022CF112E8990800F064EE /* AudioToolbox.framework */; };
 		3A022CF712E8992B00F064EE /* BioAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A022CF612E8992B00F064EE /* BioAudio.m */; };
-		3A1047B412F5D2AC008F3F07 /* liblo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1047B312F5D2AC008F3F07 /* liblo.a */; };
 		3A10487E12F6187A008F3F07 /* DBAccountInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A10482912F6187A008F3F07 /* DBAccountInfo.m */; };
 		3A10487F12F6187A008F3F07 /* DBCreateAccountController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A10482B12F6187A008F3F07 /* DBCreateAccountController.m */; };
 		3A10488012F6187A008F3F07 /* DBError.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A10482D12F6187A008F3F07 /* DBError.m */; };
@@ -62,6 +61,7 @@
 		3A1048A912F6187A008F3F07 /* db_logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A10487D12F6187A008F3F07 /* db_logo@2x.png */; };
 		3A1048AB12F6188A008F3F07 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1048AA12F6188A008F3F07 /* Security.framework */; };
 		3A10492112F63102008F3F07 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A10492012F63102008F3F07 /* image.jpg */; };
+		3A1A81CB138589DA00F6543F /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1A81CA138589D800F6543F /* GraphView.m */; };
 		3ABDAE3C12F2598D00F2EDEF /* BioAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABDAE3A12F2598D00F2EDEF /* BioAudioViewController.m */; };
 		3ABDAE3D12F2598D00F2EDEF /* BioAudioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ABDAE3B12F2598D00F2EDEF /* BioAudioViewController.xib */; };
 /* End PBXBuildFile section */
@@ -79,7 +79,6 @@
 		3A022CF112E8990800F064EE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3A022CF512E8992B00F064EE /* BioAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BioAudio.h; sourceTree = "<group>"; };
 		3A022CF612E8992B00F064EE /* BioAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BioAudio.m; sourceTree = "<group>"; };
-		3A1047B312F5D2AC008F3F07 /* liblo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblo.a; path = ../../Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/lib/liblo.a; sourceTree = SOURCE_ROOT; };
 		3A10482812F6187A008F3F07 /* DBAccountInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBAccountInfo.h; sourceTree = "<group>"; };
 		3A10482912F6187A008F3F07 /* DBAccountInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBAccountInfo.m; sourceTree = "<group>"; };
 		3A10482A12F6187A008F3F07 /* DBCreateAccountController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBCreateAccountController.h; sourceTree = "<group>"; };
@@ -164,6 +163,8 @@
 		3A10487D12F6187A008F3F07 /* db_logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "db_logo@2x.png"; sourceTree = "<group>"; };
 		3A1048AA12F6188A008F3F07 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3A10492012F63102008F3F07 /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
+		3A1A81C9138589D800F6543F /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
+		3A1A81CA138589D800F6543F /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
 		3A1EA83412ED90E2005AE738 /* OldBioAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OldBioAudio.h; sourceTree = "<group>"; };
 		3A1EA83512ED90E2005AE738 /* OldBioAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OldBioAudio.m; sourceTree = "<group>"; };
 		3ABDAE3912F2598D00F2EDEF /* BioAudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BioAudioViewController.h; sourceTree = "<group>"; };
@@ -182,7 +183,6 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				3A022CF212E8990800F064EE /* AudioToolbox.framework in Frameworks */,
-				3A1047B412F5D2AC008F3F07 /* liblo.a in Frameworks */,
 				3A1048AB12F6188A008F3F07 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,6 +203,8 @@
 				3A1EA83512ED90E2005AE738 /* OldBioAudio.m */,
 				3ABDAE3912F2598D00F2EDEF /* BioAudioViewController.h */,
 				3ABDAE3A12F2598D00F2EDEF /* BioAudioViewController.m */,
+				3A1A81C9138589D800F6543F /* GraphView.h */,
+				3A1A81CA138589D800F6543F /* GraphView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -250,7 +252,6 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3A1047B312F5D2AC008F3F07 /* liblo.a */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
@@ -491,6 +492,7 @@
 				3A10489C12F6187A008F3F07 /* NSURL+MPURLParameterAdditions.m in Sources */,
 				3A10489D12F6187A008F3F07 /* NSURLResponse+Encoding.m in Sources */,
 				3A10489E12F6187A008F3F07 /* NSString+Dropbox.m in Sources */,
+				3A1A81CB138589DA00F6543F /* GraphView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +511,7 @@
 				GCC_PREFIX_HEADER = BioAudio_Prefix.pch;
 				HEADER_SEARCH_PATHS = "/Users/brennon/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/include/**";
 				INFOPLIST_FILE = "BioAudio-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -535,6 +538,7 @@
 				GCC_PREFIX_HEADER = BioAudio_Prefix.pch;
 				HEADER_SEARCH_PATHS = "/Users/brennon/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/include/**";
 				INFOPLIST_FILE = "BioAudio-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",

@@ -12,7 +12,6 @@
 @implementation BioAudioAppDelegate
 
 @synthesize window;
-@synthesize bioAudio;
 @synthesize baViewController;
 
 #pragma mark -
@@ -60,10 +59,13 @@
 
 - (void)postFile
 {
-	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"image" ofType:@"jpg"];
-	NSLog(@"%@", filePath);
+	NSArray  *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+	NSString *destinationFilePath = [[[NSString alloc] initWithFormat: @"%@/output.caf", documentsDirectory] autorelease];
 	
-	[[self restClient] uploadFile:@"uploadedImage.jpg" toPath:@"/" fromPath:filePath];	
+	NSLog(@"%@", destinationFilePath);
+	
+	[[self restClient] uploadFile:@"uploaded.caf" toPath:@"/" fromPath:destinationFilePath];
 	NSLog(@"-[BioAudioAppDelegate postFile]");
 }
 
@@ -93,7 +95,7 @@ loadMetadataFailedWithError:(NSError*)error {
 		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	}
 
-	NSLog(@"Uploading file... %2.2f\%", progress * 100);
+	NSLog(@"Uploading file... %2.2f percent complete", progress * 100);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

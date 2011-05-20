@@ -26,7 +26,7 @@
 - (void)postFile;
 
 @property (nonatomic, retain) IBOutlet	UIWindow	*window;
-@property (retain)						BioAudio	*bioAudio;
+@property (retain, readonly)						BioAudio	*bioAudio;
 @property (retain) BioAudioViewController *baViewController;
 
 @end

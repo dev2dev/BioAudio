@@ -8,12 +8,14 @@
 
 #import "BioAudioViewController.h"
 #import	"BioAudioAppDelegate.h"
+#import "GraphView.h"
 
 
 @implementation BioAudioViewController
 
 @synthesize startAudioButton;
 @synthesize stopAudioButton;
+@synthesize graphView;
 
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 /*
@@ -31,15 +33,14 @@
     [super viewDidLoad];
 	self.stopAudioButton.enabled = NO;
 	self.startAudioButton.enabled = YES;
+    self.graphView.hidden = YES;
 }
 
-/*
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations.
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
 }
-*/
 
 - (IBAction)didPressLink
 {
@@ -56,6 +57,7 @@
 
 - (IBAction)startAudio
 {
+    self.graphView.hidden = NO;
 	BioAudioAppDelegate *appDelegate = (BioAudioAppDelegate *) [[UIApplication sharedApplication] delegate];
 	[appDelegate.bioAudio startAudio];
 	self.startAudioButton.enabled = NO;
@@ -65,6 +67,7 @@
 
 - (IBAction)stopAudio
 {
+    self.graphView.hidden = YES;
 	BioAudioAppDelegate *appDelegate = (BioAudioAppDelegate *) [[UIApplication sharedApplication] delegate];
 	[appDelegate.bioAudio stopAudio];
 	self.stopAudioButton.enabled = NO;

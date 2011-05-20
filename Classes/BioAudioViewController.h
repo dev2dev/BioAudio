@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class GraphView;
 
 @interface BioAudioViewController : UIViewController {
 	IBOutlet UIButton *startAudioButton;
 	IBOutlet UIButton *stopAudioButton;
+    
+    IBOutlet GraphView *graphView;
 }
 
 - (IBAction)didPressLink;
@@ -21,5 +24,6 @@
 
 @property (retain) IBOutlet UIButton *startAudioButton;
 @property (retain) IBOutlet UIButton *stopAudioButton;
+@property (retain) IBOutlet GraphView *graphView;
 
 @end

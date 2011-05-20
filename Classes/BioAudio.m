@@ -15,7 +15,6 @@
 
 @synthesize remoteIOUnit;
 
-
 #pragma mark init/dealloc
 /*
  // The designated initializer. Override to perform setup that is required before the view is loaded.
@@ -35,13 +34,11 @@
 {
 
 	// Initialise Audio Session
-	OSStatus setUpAudioSessionErr=
-	AudioSessionInitialize (
-							NULL, // default run loop
-							NULL, // default run loop mode
-							// MyInterruptionHandler, // interruption callback
-							nil, // interruption callback
-							self); // client callback data
+	OSStatus setUpAudioSessionErr = AudioSessionInitialize(NULL, // default run loop
+                                                           NULL, // default run loop mode
+                                                           nil, // interruption callback
+                                                           self); // client callback data
+
 	NSAssert (setUpAudioSessionErr == noErr, @"Couldn't initialize audio session");
 	
 	// Set Audio Session to Play and Record
@@ -78,20 +75,17 @@
 		[noInputAlert release];
 	}
 	
-	/*
-	// I thought this would override the audio route...
-	UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_Speaker;
-	size_t aroSize = sizeof(audioRouteOverride);
-	setUpAudioSessionErr = AudioSessionSetProperty(kAudioSessionProperty_OverrideAudioRoute, aroSize, &audioRouteOverride);
-	*/
-	/*
-	 // listen for changes in mic status
-	 setupErr = AudioSessionAddPropertyListener (
-	 kAudioSessionProperty_AudioInputAvailable,
-	 MyInputAvailableListener,
-	 self);
-	 NSAssert (setupAudioSessionErr == noErr, @"Couldn't setup audio input available prop listener");
-	 */
+
+	// I thought this would override the audio route so that I could use headphones for input and speaker for output
+	// UInt32 audioRouteOverride = kAudioSessionOverrideAudioRoute_Speaker;
+	// size_t aroSize = sizeof(audioRouteOverride);
+	// setUpAudioSessionErr = AudioSessionSetProperty(kAudioSessionProperty_OverrideAudioRoute, aroSize, &audioRouteOverride);
+	
+
+	// Listen for changes in mic status
+	// setupErr = AudioSessionAddPropertyListener(kAudioSessionProperty_AudioInputAvailable, MyInputAvailableListener, self);
+	// NSAssert (setupAudioSessionErr == noErr, @"Couldn't setup audio input available prop listener");
+
 	
 	// Set Audio Session as active
 	setUpAudioSessionErr = AudioSessionSetActive(true);
@@ -106,7 +100,6 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 								  UInt32							inBusNumber,
 								  UInt32							inNumberFrames,
 								  AudioBufferList *					ioData) {
-
 	
 	EffectState *effectState = (EffectState *)inRefCon;
 	AudioUnit rioUnit = effectState->rioUnit;
@@ -121,142 +114,139 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 								inNumberFrames,
 								ioData);
 	
-	// Step through each sample
-	AudioSampleType sample = 0;
-	double doubleSample = 0.0F;
+	// Process each frame
+	AudioSampleType sample = 0.0f;
 	AudioBuffer buf = ioData->mBuffers[0];
 	int currentFrame = 0;
 	while (currentFrame < inNumberFrames) {		
-		// copy sample to buffer -- only concerned with first channel right now
-		memcpy(&sample, buf.mData + (currentFrame * 10), sizeof(AudioSampleType));
+		// Copy from incoming buffer to a local buffer
+		// (We're only concerned with first channel right now)
+		memcpy(&sample, buf.mData + (currentFrame * 4), sizeof(AudioSampleType));
 
+/*
 		// Threshold each sample to 0.0 - 1.0
 		if (sample > 0) {
-			doubleSample = 1.0F;
-		} else {
 			doubleSample = 0.0F;
+		} else {
+			doubleSample = 1.0F;
 		}
+		// End thresholding
 
 		// Lowpass filter
-		lpFilter lp1 = effectState->lpFilter1;			
-		*lp1.z = sample;
+		lpFilter *lp1 = &effectState->lpFilter1;
+		*lp1->zx = doubleSample;
+		
 		double accumulator = 0.0F;
 		double *py = &accumulator;
-		double *ph = lp1.hx; // lp1.hx[0]
-		double *pz = lp1.z;  // lp1.z[0]
+		double *ph = lp1->hx;
+		double *pz = lp1->zx;
 		
-		for (int i = 0; i < lp1.taps; i++) {
+		for (int i = 0; i < lp1->taps; i++) {
 			*py += (*ph++ * *pz++);
 		}
 		
-		pz = &lp1.z[lp1.taps-1];
-		for (int i = 0; i < (lp1.taps-1); i++) {
+		pz = &lp1->zx[lp1->taps-1];
+		for (int i = (lp1->taps-1); i > 0; i--) {
 			*pz = *(pz - 1);
 			pz--;
 		}
-		
-/*		
-		// Multiply by sine waves each signal by sine wave
+		// End lowpass filter
+*/
 
-		double ch1Signal, ch2Signal;
-		
-		ch1Signal = sin(effectState->ch1Phase) * *pz;
-		ch2Signal = sin(effectState->ch2Phase) * *pz;
+		// Multiply by sine waves each signal by sine wave
+		AudioSampleType ch1Signal, ch2Signal;
+//        AudioSampleType *ch1Ptr = &ch1Signal;
+//        AudioSampleType *ch2Ptr = &ch2Signal;                
+    
+		ch1Signal = sin(effectState->ch1Phase) * sample;
+        ch2Signal = 0;
+//		ch2Signal = sin(effectState->ch2Phase) * sample;
 		
 		effectState->ch1Phase += effectState->ch1PhaseIncrement;
-		effectState->ch2Phase += effectState->ch2PhaseIncrement;
+//		effectState->ch2Phase += effectState->ch2PhaseIncrement;
 		
-		if (effectState->ch1Phase >= M_PI * 5.0F) {
-			effectState->ch1Phase = effectState->ch1Phase - M_PI * 5.0F;
+		if (effectState->ch1Phase >= M_PI * 100.0F) {
+			effectState->ch1Phase = effectState->ch1Phase - M_PI * 100.0F;
 		}
-		
-		if (effectState->ch2Phase >= M_PI * 5.0F) {
-			effectState->ch2Phase = effectState->ch2Phase - M_PI * 5.0F;
-		}
-		
-		// Original IIR Filter
-		demodFilter df1 = effectState->dmFilter1;
-		df1.zx[0] = ch1Signal;
-		double df1Accum = 0.0F;
-		
-		for (int i = 0; i < (df1.taps / 2); i++) {
-			df1Accum += (df1.hx[i] * df1.zx[i]) + (df1.hy[i] * df1.zy[i]);
-		}
-		
-		for (int j = ((df1.taps / 2) - 1); j >= 1; j--) {
-			df1.zx[j] = df1.zx[j-1];
-			df1.zy[j] = df1.zy[j-1];
-		}
-		
-		demodFilter df2 = effectState->dmFilter2;
-		df2.zx[0] = ch2Signal;
-		double df2Accum = 0.0F;
-		
-		for (int i = 0; i < (df2.taps / 2); i++) {
-			df2Accum += (df2.hx[i] * df2.zx[i]) + (df2.hy[i] * df2.zy[i]);
-		}
-		
-		for (int j = ((df2.taps / 2) - 1); j >= 1; j--) {
-			df2.zx[j] = df2.zx[j-1];
-			df2.zy[j] = df2.zy[j-1];
-		}
-*/
 /*		
-		*df1.zx = ch1Signal;
-		double dfAccum1 = 0.0F;
-		double *pdfAccum1 = &dfAccum1;
-		double *phx1 = df1.hx;
-		double *phy1 = df1.hy;
-		double *pzx1 = df1.zx;
-		double *pzy1 = df1.zy;
-		
-		for (int i = 0; i < df1.taps; i++) {
-			*pdfAccum1 += ((*phx1++ * *pzx1++) + (*phy1++ * *pzy1++));
-		}
-
-		pzx1 = &df1.zx[(df1.taps/2)-1];
-		pzy1 = &df1.zy[(df1.taps/2)-1];
-		
-		for (int j = ((df1.taps/2)-1); j > 1; j--) {
-			*pzx1 = *(pzx1 - 1);
-			*pzy1 = *(pzy1 - 1);
-			pzx1--;
-			pzy1--;
+		if (effectState->ch2Phase >= M_PI * 200.0F) {
+			effectState->ch2Phase = effectState->ch2Phase - M_PI * 200.0F;
 		}
 */
-/*
-		*df2.zx = ch2Signal;
-		double accum2 = 0.0F;
-		double *paccum2 = &accum2;
-		double *phx2 = df2.hx;
-		double *phy2 = df2.hy;
-		double *pzx2 = df2.zx;
-		double *pzy2 = df2.zy;
+        // End sine wave multiplication
+
+
+		// Channel 1 IIR Filter
+		demodFilter *df1 = &effectState->dmFilter1;
+		*df1->zx = ch1Signal;
+		double df1Accum = 0.0F;
+		double *py2 = &df1Accum;
+		double *phx2 = df1->hx;
+		double *phy2 = df1->hy;
+		double *pzx2 = df1->zx;
+		double *pzy2 = df1->zy;
+		int *taps = &df1->taps;
 		
-		for (int i = 0; i < df2.taps; i++) {
-			*paccum2 += ((*phx2++ * *pzx2++) + (*phy2++ * *pzy2++));
+		for (int i = 0; i < *taps / 2; i++) {
+			*py2 += (*phx2++ * *pzx2++) + (*phy2++ * *pzy2++);
 		}
 		
-		pzx2 = &df1.zx[df2.taps-1];
-		pzy2 = &df1.zy[df2.taps-1];
-		for (int i = 0; i < (df2.taps-1); i++) {
+		pzx2 = &df1->zx[((*taps / 2) - 1)];
+		pzy2 = &df1->zy[((*taps / 2) - 1)];
+		for (int j = ((*taps / 2) - 1); j > 0; j--) {
 			*pzx2 = *(pzx2 - 1);
 			*pzy2 = *(pzy2 - 1);
 			pzx2--;
 			pzy2--;
 		}
-*/
-//		NSLog(@"%4.4f\t\t\t\t\t%4.4f", df1Accum, df2Accum);
-		AudioSampleType ch1Out = (SInt16)(accumulator * 32767.0F);
-//		AudioSampleType ch2Out = (SInt16)(df2Accum * 32767.0F);
-				
-//		lo_send(effectState->outAddress, "", "i", ch1Out);
 		
-		memcpy(buf.mData + (currentFrame * 10), &accumulator, sizeof(AudioSampleType));
-		memcpy(buf.mData + (currentFrame * 10) + 2, &accumulator, sizeof(AudioSampleType));
+		*(pzy2 + 1) = *py2;
+		// End Channel 1 IIR Filter
+
+/*		
+		// Channel 2 IIR Filter
+		demodFilter *df2 = &effectState->dmFilter2;
+		*df2->zx = ch2Signal;
+		double df2Accum = 0.0F;
+		double *py3 = &df2Accum;
+		double *phx3 = df2->hx;
+		double *phy3 = df2->hy;
+		double *pzx3 = df2->zx;
+		double *pzy3 = df2->zy;
+		taps = &df2->taps;
+		
+		for (int i = 0; i < *taps / 2; i++) {
+			*py3 += (*phx3++ * *pzx3++) + (*phy3++ * *pzy3++);
+		}
+		
+		pzx3 = &df2->zx[((*taps / 2) - 1)];
+		pzy3 = &df2->zy[((*taps / 2) - 1)];
+		for (int j = ((*taps / 2) - 1); j > 0; j--) {
+			*pzx3 = *(pzx3 - 1);
+			*pzy3 = *(pzy3 - 1);
+			pzx3--;
+			pzy3--;
+		}
+		
+		*(pzy3 + 1) = *py3;
+		// End Channel 2 IIR Filter
+*/        
+		
+		memcpy(buf.mData + (currentFrame * 4), &py2, sizeof(AudioSampleType));
+//		memcpy(buf.mData + (currentFrame * 4) + 2, &py3, sizeof(AudioSampleType));
+
+		
+		// Send OSC message
+		if (++effectState->sampleCounter >= 882) {
+		 	effectState->sampleCounter = 0;
+		 	NSLog(@"%f", df1Accum);
+		//	lo_send(effectState->outAddress, "/gsr", "i", sample);
+		}
 
 		currentFrame++;
-	}	
+	}
+	
+	ExtAudioFileWriteAsync(effectState->audioFileRef, inNumberFrames, ioData);
 
 	return noErr;
 }
@@ -308,10 +298,10 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 	myASBD.mSampleRate = hardwareSampleRate;
 	myASBD.mFormatID = kAudioFormatLinearPCM;
 	myASBD.mFormatFlags = kAudioFormatFlagsCanonical;
-	myASBD.mBytesPerPacket = 10;
+	myASBD.mBytesPerPacket = 4;
 	myASBD.mFramesPerPacket = 1;
-	myASBD.mBytesPerFrame = 10;
-	myASBD.mChannelsPerFrame = 5;
+	myASBD.mBytesPerFrame = 4;
+	myASBD.mChannelsPerFrame = 2;
 	myASBD.mBitsPerChannel = 16;
 	
 	// set format for output (bus 0) on rio's input scope
@@ -355,45 +345,17 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 	
 	setupErr =	AudioUnitInitialize(remoteIOUnit);
 	NSAssert (setupErr == noErr, @"Couldn't initialize Remote I/O unit");
-	
-	// Setup output file
-	NSArray  *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString *documentsDirectory = [paths objectAtIndex:0];
-	NSString *destinationFilePath = [[[NSString alloc] initWithFormat: @"%@/output.aiff", documentsDirectory] autorelease];
-	CFURLRef destinationURL = CFURLCreateWithFileSystemPath(kCFAllocatorDefault, (CFStringRef)destinationFilePath, kCFURLPOSIXPathStyle, false);
-	
-	NSLog(@"-[setUpAUConnectionsWithRenderCallback] -- output path selected: %@", (NSString *)destinationURL);
-	
-	AudioStreamBasicDescription myOutASBD = {0};
-	myOutASBD.mBitsPerChannel = 16;
-	myOutASBD.mChannelsPerFrame = 2;
-	myOutASBD.mBytesPerFrame = 4;
-	myOutASBD.mFramesPerPacket = 1;
-	myOutASBD.mBytesPerPacket = 4;
-	myOutASBD.mFormatID = kAudioFormatLinearPCM;
-	myOutASBD.mFormatFlags = kLinearPCMFormatFlagIsPacked | kLinearPCMFormatFlagIsSignedInteger;
-	
-	ExtAudioFileRef audioFileRef;
-	
-	// WHY CAN'T I USE kAudioFileAIFFType?
-	setupErr = ExtAudioFileCreateWithURL (destinationURL,
-										  kAudioFileCAFType,
-										  &myOutASBD,
-										  NULL,
-										  kAudioFileFlags_EraseFile,
-										  &audioFileRef);
-	
-	NSAssert(setupErr == noErr, @"Couldn't create file for writing");
 }
 
 - (void)setup {
 	[self setUpAudioSession];
 	[self setUpAUConnectionsWithRenderCallback];
 	
-	effectState.outAddress = lo_address_new_with_proto(LO_UDP, "192.168.1.64", "7400");
+//	effectState.outAddress = nil; // lo_address_new_with_proto(LO_UDP, "192.168.1.64", "7400");
 	
 	memset(&effectState.lpFilter1.hx, 0, sizeof(effectState.lpFilter1.hx));
-	memset(&effectState.lpFilter1.z, 0, sizeof(effectState.lpFilter1.z));
+	memset(&effectState.lpFilter1.zx, 0, sizeof(effectState.lpFilter1.zx));
+	
 	memset(&effectState.dmFilter1.hx, 0, sizeof(effectState.dmFilter1.hx));
 	memset(&effectState.dmFilter1.hy, 0, sizeof(effectState.dmFilter1.hy));
 	memset(&effectState.dmFilter1.zx, 0, sizeof(effectState.dmFilter1.zx));
@@ -435,12 +397,29 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 											   0.000000000000057385011194877299,
 											   0.00000000000001147700223897546};
 	
-	double demodYCoefficients[DEMOD_Y_TAPS] = {1.0,
+	double demodYCoefficients[DEMOD_Y_TAPS] = {0.0,
 											   -4.9894446826387089,
 											   9.9578344164698258,
 											   -9.9368349720987279,
 											   4.9579454257081013,
 											   -0.98950018744012291};
+	/*
+	double demodXCoefficients[DEMOD_X_TAPS] = {
+		1.1,
+		1.2,
+		1.3,
+		1.4,
+		1.5,
+		1.6};
+	
+	double demodYCoefficients[DEMOD_Y_TAPS] = {
+		0.0,
+		1.7,
+		1.8,
+		1.9,
+		2.0,
+		2.1};
+	*/
 	
 	for (int i = 0; i < LOWPASS_TAPS; i++) {
 		effectState.lpFilter1.hx[i] = lpCoefficients[i];
@@ -458,21 +437,49 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 	
 	NSLog(@"-[BioAudio setup] -- filter array setup complete");
 
-	effectState.lpFilter1.state = 0;
 	effectState.lpFilter1.taps = LOWPASS_TAPS;
-	effectState.dmFilter1.state = 0;
 	effectState.dmFilter1.taps = DEMOD_X_TAPS + DEMOD_Y_TAPS;
-	effectState.dmFilter2.state = 0;
 	effectState.dmFilter2.taps = DEMOD_X_TAPS + DEMOD_Y_TAPS;
+	effectState.sampleCounter = 0;
+}
+
+- (void)setupOutputFile
+{
+	// Setup output file
+	NSArray  *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+	NSString *documentsDirectory = [paths objectAtIndex:0];
+	NSString *destinationFilePath = [[[NSString alloc] initWithFormat: @"%@/output.caf", documentsDirectory] autorelease];
+	CFURLRef destinationURL = CFURLCreateWithFileSystemPath(kCFAllocatorDefault, (CFStringRef)destinationFilePath, kCFURLPOSIXPathStyle, false);
+	
+	NSLog(@"-[setUpAUConnectionsWithRenderCallback] -- output path selected: %@", (NSString *)destinationURL);
+	
+	AudioStreamBasicDescription myOutASBD = {0};
+	myOutASBD.mBitsPerChannel = 16;
+	myOutASBD.mChannelsPerFrame = 2;
+	myOutASBD.mBytesPerFrame = 4;
+	myOutASBD.mFramesPerPacket = 1;
+	myOutASBD.mBytesPerPacket = 4;
+	myOutASBD.mFormatID = kAudioFormatLinearPCM;
+	myOutASBD.mFormatFlags = kLinearPCMFormatFlagIsPacked | kLinearPCMFormatFlagIsSignedInteger;
+	
+	// WHY CAN'T I USE kAudioFileAIFFType?
+	OSStatus setupErr = ExtAudioFileCreateWithURL(destinationURL, kAudioFileCAFType, &myOutASBD, NULL, kAudioFileFlags_EraseFile, &effectState.audioFileRef);	
+	CFRelease(destinationURL);
+	NSAssert(setupErr == noErr, @"Couldn't create file for writing");
+	
+	setupErr =  ExtAudioFileWriteAsync(effectState.audioFileRef, 0, NULL);
+	NSAssert(setupErr == noErr, @"Couldn't initialize write buffers for audio file");
 }
 
 - (void)startAudio
 {
 	NSLog(@"-[BioAudio startAudio]");
 	OSStatus startErr = noErr;
+
 	startErr = AudioOutputUnitStart (remoteIOUnit);
-	
 	NSAssert (startErr == noErr, @"Couldn't start Remote I/O unit");
+	
+	[self setupOutputFile];
 	
 	NSLog (@"-[BioAudio startAudio] -- started Remote I/O unit");
 }
@@ -486,6 +493,9 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 	NSAssert (stopErr == noErr, @"Couldn't stop Remote I/O unit");
 	
 	NSLog (@"-[BioAudio stopAudio] -- stopped Remote I/O unit");
+	
+	OSStatus writeErr = ExtAudioFileDispose(effectState.audioFileRef);
+	NSLog(@"writeErr status: %ld", writeErr);
 }
 
 @end

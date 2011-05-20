@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
-#import <lo/lo.h>
+// #import <lo/lo.h>
 
 #define LOWPASS_TAPS 18
 #define DEMOD_X_TAPS 6
@@ -16,9 +16,8 @@
 
 typedef struct {
 	double hx[LOWPASS_TAPS];
-	double z[LOWPASS_TAPS];
+	double zx[LOWPASS_TAPS];
 	int taps;
-	int state;
 } lpFilter;
 
 typedef struct {
@@ -27,14 +26,11 @@ typedef struct {
 	double zx[DEMOD_X_TAPS];
 	double zy[DEMOD_Y_TAPS];
 	int taps;
-	int state;
 } demodFilter;
 
 typedef struct {
 	AudioUnit rioUnit;
 	AudioStreamBasicDescription asbd;
-	float frequency;
-	float gain;
 	lpFilter lpFilter1;
 	demodFilter dmFilter1;
 	demodFilter dmFilter2;
@@ -42,7 +38,9 @@ typedef struct {
 	double ch2PhaseIncrement;
 	double ch1Phase;
 	double ch2Phase;
-	lo_address outAddress;
+//	lo_address outAddress;
+	ExtAudioFileRef audioFileRef;
+	int sampleCounter;
 } EffectState;
 
 @interface BioAudio : NSObject {	

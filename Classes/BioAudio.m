@@ -7,7 +7,8 @@
 //
 
 #import "BioAudio.h"
-#import <lo/lo.h>
+// #import <lo/lo.h>
+#import "DemodCoefs.h"
 
 //#include <float.h>
 
@@ -47,7 +48,14 @@
 													sizeof (sessionCategory),
 													&sessionCategory);
 	NSAssert (setUpAudioSessionErr == noErr, @"Couldn't set audio session property");
-	
+    
+    // Set Audio Session Sample Rate
+	Float64 sessionSampleRate = 8000.0;
+	setUpAudioSessionErr = AudioSessionSetProperty (kAudioSessionProperty_PreferredHardwareSampleRate,
+													sizeof (sessionSampleRate),
+													&sessionSampleRate);
+	NSAssert (setUpAudioSessionErr == noErr, @"Couldn't set audio session sample rate");
+    
 	// Check Audio Session sample rate
 	UInt32 f64PropertySize = sizeof (Float64);
 	setUpAudioSessionErr = AudioSessionGetProperty (kAudioSessionProperty_CurrentHardwareSampleRate,
@@ -121,127 +129,92 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 	while (currentFrame < inNumberFrames) {		
 		// Copy from incoming buffer to a local buffer
 		// (We're only concerned with first channel right now)
-		memcpy(&sample, buf.mData + (currentFrame * 4), sizeof(AudioSampleType));
+		memcpy(&sample, buf.mData + (currentFrame * 4), sizeof(AudioSampleType));                
+        
+//        if ((++effectState->sampleCounter % 10) == 0) {
+//            effectState->sampleCounter = 0;
+            
+            // Uncomment for real input
+            // double scaledSample = (double) sample / 32768.0;
+            
+            // Generate two sine waves, one at 100Hz, one at 200Hz
+            double modSignal1 = sin(effectState->test1Phase) * 0.2 + 0.2;
+            double modSignal2 = sin(effectState->test2Phase) * 0.2 + 0.6;
+            double testSignal = (modSignal1 * sin(effectState->ch1Phase)) + (modSignal2 * sin(effectState->ch2Phase));
+            
+            double scaledSignal1 = testSignal * sin(effectState->ch1Phase);
+            double scaledSignal2 = testSignal * sin(effectState->ch2Phase);
 
+             // Debugging messages
+             // if (++effectState->sampleCounter >= 441) {
+             //    effectState->sampleCounter = 0;
+             //    NSLog(@"%f\t%f", modSignal1, modSignal2);
+             // }
+            
+            // Uncomment for real input
+            // double scaledSignal1 = sin(effectState->ch1Phase) * scaledSample;
+            // double scaledSignal2 = sin(effectState->ch2Phase) * scaledSample;        
+            
+            effectState->ch1Phase += effectState->ch1PhaseIncrement;
+            effectState->ch2Phase += effectState->ch2PhaseIncrement;            
+            
+            if (effectState->ch1Phase >= (2 * M_PI * 100.0F)) {
+                effectState->ch1Phase = effectState->ch1Phase - (2 * M_PI * 100.0F);
+            }
+            
+            if (effectState->ch2Phase >= (2 * M_PI * 200.0F)) {
+                effectState->ch2Phase = effectState->ch2Phase - (2 * M_PI * 200.0F);
+            }
+            
+            effectState->test1Phase += effectState->test1PhaseIncrement;
+            effectState->test2Phase += effectState->test2PhaseIncrement;
+            
+            if (effectState->test1Phase >= (2 * M_PI * 1.3F)) {
+                effectState->test1Phase = effectState->test1Phase - (2 * M_PI * 1.3F);
+            }
+            
+            if (effectState->test2Phase >= (2 * M_PI * 9.2F)) {
+                effectState->test2Phase = effectState->test2Phase - (2 * M_PI * 9.2F);
+            }
+
+            // End sine wave multiplication            
+
+            // Inefficient filter!?
+            // Shuffle input history array
+            for (int j=(b_length-1); j > 0; j--) {
+                effectState->dmFilter1.zx[j] = effectState->dmFilter1.zx[j-1];
+                effectState->dmFilter2.zx[j] = effectState->dmFilter2.zx[j-1];
+            }
+            
+            // Store input in input history array
+            effectState->dmFilter1.zx[0] = scaledSignal1;
+            effectState->dmFilter2.zx[0] = scaledSignal2;
+            
+            double accumulator1 = 0.0;
+            double accumulator2 = 0.0;
+            
+            // Multiply and sum
+            for (int j=0; j < b_length; j++) {
+                accumulator1 += effectState->dmFilter1.zx[j] * b[j];
+                accumulator2 += effectState->dmFilter2.zx[j] * b[j];
+            }
+ 
+            
+            AudioSampleType ch1Signal = (AudioSampleType) (accumulator1 * 32767.5 - 0.5);
+            AudioSampleType ch2Signal = (AudioSampleType) (accumulator2 * 32767.5 - 0.5);
+        
+            // AudioSampleType ch1Signal = (AudioSampleType) (scaledSignal1 * 32767.5 - 0.5);
+            // AudioSampleType ch2Signal = (AudioSampleType) (scaledSignal2 * 32767.5 - 0.5);
+            
+            memcpy(buf.mData + (currentFrame * 4), &ch1Signal, sizeof(AudioSampleType));
+            memcpy(buf.mData + (currentFrame * 4) + 2, &ch2Signal, sizeof(AudioSampleType));            
 /*
-		// Threshold each sample to 0.0 - 1.0
-		if (sample > 0) {
-			doubleSample = 0.0F;
-		} else {
-			doubleSample = 1.0F;
-		}
-		// End thresholding
-
-		// Lowpass filter
-		lpFilter *lp1 = &effectState->lpFilter1;
-		*lp1->zx = doubleSample;
-		
-		double accumulator = 0.0F;
-		double *py = &accumulator;
-		double *ph = lp1->hx;
-		double *pz = lp1->zx;
-		
-		for (int i = 0; i < lp1->taps; i++) {
-			*py += (*ph++ * *pz++);
-		}
-		
-		pz = &lp1->zx[lp1->taps-1];
-		for (int i = (lp1->taps-1); i > 0; i--) {
-			*pz = *(pz - 1);
-			pz--;
-		}
-		// End lowpass filter
-*/
-
-		// Multiply by sine waves each signal by sine wave
-		AudioSampleType ch1Signal, ch2Signal;
-//        AudioSampleType *ch1Ptr = &ch1Signal;
-//        AudioSampleType *ch2Ptr = &ch2Signal;                
-    
-		ch1Signal = sin(effectState->ch1Phase) * sample;
-        ch2Signal = 0;
-//		ch2Signal = sin(effectState->ch2Phase) * sample;
-		
-		effectState->ch1Phase += effectState->ch1PhaseIncrement;
-//		effectState->ch2Phase += effectState->ch2PhaseIncrement;
-		
-		if (effectState->ch1Phase >= M_PI * 100.0F) {
-			effectState->ch1Phase = effectState->ch1Phase - M_PI * 100.0F;
-		}
-/*		
-		if (effectState->ch2Phase >= M_PI * 200.0F) {
-			effectState->ch2Phase = effectState->ch2Phase - M_PI * 200.0F;
-		}
-*/
-        // End sine wave multiplication
-
-
-		// Channel 1 IIR Filter
-		demodFilter *df1 = &effectState->dmFilter1;
-		*df1->zx = ch1Signal;
-		double df1Accum = 0.0F;
-		double *py2 = &df1Accum;
-		double *phx2 = df1->hx;
-		double *phy2 = df1->hy;
-		double *pzx2 = df1->zx;
-		double *pzy2 = df1->zy;
-		int *taps = &df1->taps;
-		
-		for (int i = 0; i < *taps / 2; i++) {
-			*py2 += (*phx2++ * *pzx2++) + (*phy2++ * *pzy2++);
-		}
-		
-		pzx2 = &df1->zx[((*taps / 2) - 1)];
-		pzy2 = &df1->zy[((*taps / 2) - 1)];
-		for (int j = ((*taps / 2) - 1); j > 0; j--) {
-			*pzx2 = *(pzx2 - 1);
-			*pzy2 = *(pzy2 - 1);
-			pzx2--;
-			pzy2--;
-		}
-		
-		*(pzy2 + 1) = *py2;
-		// End Channel 1 IIR Filter
-
-/*		
-		// Channel 2 IIR Filter
-		demodFilter *df2 = &effectState->dmFilter2;
-		*df2->zx = ch2Signal;
-		double df2Accum = 0.0F;
-		double *py3 = &df2Accum;
-		double *phx3 = df2->hx;
-		double *phy3 = df2->hy;
-		double *pzx3 = df2->zx;
-		double *pzy3 = df2->zy;
-		taps = &df2->taps;
-		
-		for (int i = 0; i < *taps / 2; i++) {
-			*py3 += (*phx3++ * *pzx3++) + (*phy3++ * *pzy3++);
-		}
-		
-		pzx3 = &df2->zx[((*taps / 2) - 1)];
-		pzy3 = &df2->zy[((*taps / 2) - 1)];
-		for (int j = ((*taps / 2) - 1); j > 0; j--) {
-			*pzx3 = *(pzx3 - 1);
-			*pzy3 = *(pzy3 - 1);
-			pzx3--;
-			pzy3--;
-		}
-		
-		*(pzy3 + 1) = *py3;
-		// End Channel 2 IIR Filter
-*/        
-		
-		memcpy(buf.mData + (currentFrame * 4), &py2, sizeof(AudioSampleType));
-//		memcpy(buf.mData + (currentFrame * 4) + 2, &py3, sizeof(AudioSampleType));
-
-		
-		// Send OSC message
-		if (++effectState->sampleCounter >= 882) {
-		 	effectState->sampleCounter = 0;
-		 	NSLog(@"%f", df1Accum);
-		//	lo_send(effectState->outAddress, "/gsr", "i", sample);
-		}
+        } else {
+            sample = 0;
+            memcpy(buf.mData + (currentFrame * 4), &sample, sizeof(AudioSampleType));
+            memcpy(buf.mData + (currentFrame * 4) + 2, &sample, sizeof(AudioSampleType));
+        }
+ */
 
 		currentFrame++;
 	}
@@ -353,93 +326,23 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 	
 //	effectState.outAddress = nil; // lo_address_new_with_proto(LO_UDP, "192.168.1.64", "7400");
 	
-	memset(&effectState.lpFilter1.hx, 0, sizeof(effectState.lpFilter1.hx));
-	memset(&effectState.lpFilter1.zx, 0, sizeof(effectState.lpFilter1.zx));
-	
-	memset(&effectState.dmFilter1.hx, 0, sizeof(effectState.dmFilter1.hx));
-	memset(&effectState.dmFilter1.hy, 0, sizeof(effectState.dmFilter1.hy));
 	memset(&effectState.dmFilter1.zx, 0, sizeof(effectState.dmFilter1.zx));
-	memset(&effectState.dmFilter1.zy, 0, sizeof(effectState.dmFilter1.zy));
-	memset(&effectState.dmFilter2.hx, 0, sizeof(effectState.dmFilter2.hx));
-	memset(&effectState.dmFilter2.hy, 0, sizeof(effectState.dmFilter2.hy));
 	memset(&effectState.dmFilter2.zx, 0, sizeof(effectState.dmFilter2.zx));
-	memset(&effectState.dmFilter2.zy, 0, sizeof(effectState.dmFilter2.zy));
 	
 	effectState.ch1Phase = 0.0F;
 	effectState.ch2Phase = 0.0F;
+    effectState.test1Phase = 0.0F;
+    effectState.test2Phase = 0.0F;
 	
-	effectState.ch1PhaseIncrement = M_PI * 100.0F / 44100.0F;
-	effectState.ch2PhaseIncrement = M_PI * 200.0F / 44100.0F;
-	
-	double lpCoefficients[LOWPASS_TAPS] = {0.0028548015164474388,
-										   0.008339098493990775,
-										   0.018367090858364413,
-										   0.033362668606975288,
-										   0.052699519977760734,
-										   0.074392863200141129,
-										   0.095346036856686883,
-										   0.11199999847179988,
-										   0.12123645840583636,
-										   0.12123645840583636,
-										   0.11199999847179988,
-										   0.095346036856686883,
-										   0.074392863200141129,
-										   0.052699519977760734,
-										   0.033362668606975288,
-										   0.018367090858364413,
-										   0.008339098493990775,
-										   0.0028548015164474388};
-	
-	double demodXCoefficients[DEMOD_X_TAPS] = {0.00000000000001147700223897546,
-											   0.000000000000057385011194877299,
-											   0.0000000000001147700223897546,
-											   0.0000000000001147700223897546,
-											   0.000000000000057385011194877299,
-											   0.00000000000001147700223897546};
-	
-	double demodYCoefficients[DEMOD_Y_TAPS] = {0.0,
-											   -4.9894446826387089,
-											   9.9578344164698258,
-											   -9.9368349720987279,
-											   4.9579454257081013,
-											   -0.98950018744012291};
-	/*
-	double demodXCoefficients[DEMOD_X_TAPS] = {
-		1.1,
-		1.2,
-		1.3,
-		1.4,
-		1.5,
-		1.6};
-	
-	double demodYCoefficients[DEMOD_Y_TAPS] = {
-		0.0,
-		1.7,
-		1.8,
-		1.9,
-		2.0,
-		2.1};
-	*/
-	
-	for (int i = 0; i < LOWPASS_TAPS; i++) {
-		effectState.lpFilter1.hx[i] = lpCoefficients[i];
-	}
-	
-	for (int i = 0; i < DEMOD_X_TAPS; i++) {
-		effectState.dmFilter1.hx[i] = demodXCoefficients[i];
-		effectState.dmFilter2.hx[i] = demodXCoefficients[i];
-	}
-	
-	for (int i = 0; i < DEMOD_Y_TAPS; i++) {
-		effectState.dmFilter1.hy[i] = demodYCoefficients[i];
-		effectState.dmFilter2.hy[i] = demodYCoefficients[i];
-	}
+	effectState.ch1PhaseIncrement = (2 * M_PI * 100.0F) / hardwareSampleRate;
+	effectState.ch2PhaseIncrement = (2 * M_PI * 200.0F) / hardwareSampleRate;
+	effectState.test1PhaseIncrement = (2 * M_PI * 1.3F) / hardwareSampleRate;
+    effectState.test2PhaseIncrement = (2 * M_PI * 9.2F) / hardwareSampleRate;
 	
 	NSLog(@"-[BioAudio setup] -- filter array setup complete");
 
-	effectState.lpFilter1.taps = LOWPASS_TAPS;
-	effectState.dmFilter1.taps = DEMOD_X_TAPS + DEMOD_Y_TAPS;
-	effectState.dmFilter2.taps = DEMOD_X_TAPS + DEMOD_Y_TAPS;
+	effectState.dmFilter1.taps = b_length;
+	effectState.dmFilter2.taps = b_length;
 	effectState.sampleCounter = 0;
 }
 

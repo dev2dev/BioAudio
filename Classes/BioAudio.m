@@ -129,92 +129,79 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 	while (currentFrame < inNumberFrames) {		
 		// Copy from incoming buffer to a local buffer
 		// (We're only concerned with first channel right now)
-		memcpy(&sample, buf.mData + (currentFrame * 4), sizeof(AudioSampleType));                
+		memcpy(&sample, buf.mData + (currentFrame * 4), sizeof(AudioSampleType));
+            
+        // Uncomment for real input
+        // double scaledSample = (double) sample / 32768.0;
         
-//        if ((++effectState->sampleCounter % 10) == 0) {
-//            effectState->sampleCounter = 0;
-            
-            // Uncomment for real input
-            // double scaledSample = (double) sample / 32768.0;
-            
-            // Generate two sine waves, one at 100Hz, one at 200Hz
-            double modSignal1 = sin(effectState->test1Phase) * 0.2 + 0.2;
-            double modSignal2 = sin(effectState->test2Phase) * 0.2 + 0.6;
-            double testSignal = (modSignal1 * sin(effectState->ch1Phase)) + (modSignal2 * sin(effectState->ch2Phase));
-            
-            double scaledSignal1 = testSignal * sin(effectState->ch1Phase);
-            double scaledSignal2 = testSignal * sin(effectState->ch2Phase);
-
-             // Debugging messages
-             // if (++effectState->sampleCounter >= 441) {
-             //    effectState->sampleCounter = 0;
-             //    NSLog(@"%f\t%f", modSignal1, modSignal2);
-             // }
-            
-            // Uncomment for real input
-            // double scaledSignal1 = sin(effectState->ch1Phase) * scaledSample;
-            // double scaledSignal2 = sin(effectState->ch2Phase) * scaledSample;        
-            
-            effectState->ch1Phase += effectState->ch1PhaseIncrement;
-            effectState->ch2Phase += effectState->ch2PhaseIncrement;            
-            
-            if (effectState->ch1Phase >= (2 * M_PI * 100.0F)) {
-                effectState->ch1Phase = effectState->ch1Phase - (2 * M_PI * 100.0F);
-            }
-            
-            if (effectState->ch2Phase >= (2 * M_PI * 200.0F)) {
-                effectState->ch2Phase = effectState->ch2Phase - (2 * M_PI * 200.0F);
-            }
-            
-            effectState->test1Phase += effectState->test1PhaseIncrement;
-            effectState->test2Phase += effectState->test2PhaseIncrement;
-            
-            if (effectState->test1Phase >= (2 * M_PI * 1.3F)) {
-                effectState->test1Phase = effectState->test1Phase - (2 * M_PI * 1.3F);
-            }
-            
-            if (effectState->test2Phase >= (2 * M_PI * 9.2F)) {
-                effectState->test2Phase = effectState->test2Phase - (2 * M_PI * 9.2F);
-            }
-
-            // End sine wave multiplication            
-
-            // Inefficient filter!?
-            // Shuffle input history array
-            for (int j=(b_length-1); j > 0; j--) {
-                effectState->dmFilter1.zx[j] = effectState->dmFilter1.zx[j-1];
-                effectState->dmFilter2.zx[j] = effectState->dmFilter2.zx[j-1];
-            }
-            
-            // Store input in input history array
-            effectState->dmFilter1.zx[0] = scaledSignal1;
-            effectState->dmFilter2.zx[0] = scaledSignal2;
-            
-            double accumulator1 = 0.0;
-            double accumulator2 = 0.0;
-            
-            // Multiply and sum
-            for (int j=0; j < b_length; j++) {
-                accumulator1 += effectState->dmFilter1.zx[j] * b[j];
-                accumulator2 += effectState->dmFilter2.zx[j] * b[j];
-            }
- 
-            
-            AudioSampleType ch1Signal = (AudioSampleType) (accumulator1 * 32767.5 - 0.5);
-            AudioSampleType ch2Signal = (AudioSampleType) (accumulator2 * 32767.5 - 0.5);
+        // Generate two sine waves, one at 100Hz, one at 200Hz
+        double modSignal1 = sin(effectState->test1Phase) * 0.2 + 0.5;
+        double modSignal2 = sin(effectState->test2Phase) * 0.2 + 0.5;
         
-            // AudioSampleType ch1Signal = (AudioSampleType) (scaledSignal1 * 32767.5 - 0.5);
-            // AudioSampleType ch2Signal = (AudioSampleType) (scaledSignal2 * 32767.5 - 0.5);
-            
-            memcpy(buf.mData + (currentFrame * 4), &ch1Signal, sizeof(AudioSampleType));
-            memcpy(buf.mData + (currentFrame * 4) + 2, &ch2Signal, sizeof(AudioSampleType));            
-/*
-        } else {
-            sample = 0;
-            memcpy(buf.mData + (currentFrame * 4), &sample, sizeof(AudioSampleType));
-            memcpy(buf.mData + (currentFrame * 4) + 2, &sample, sizeof(AudioSampleType));
+//        double modSignal1 = 0.01;
+//        double modSignal2 = 0.9;
+        double testSignal = (modSignal1 * sin(effectState->ch1Phase)) + (modSignal2 * sin(effectState->ch2Phase));
+                    
+        double scaledSignal1 = testSignal * sin(effectState->ch1Phase);
+        double scaledSignal2 = testSignal * sin(effectState->ch2Phase);
+        
+        // Uncomment for real input
+        // double scaledSignal1 = sin(effectState->ch1Phase) * scaledSample;
+        // double scaledSignal2 = sin(effectState->ch2Phase) * scaledSample;        
+        
+        effectState->ch1Phase += effectState->ch1PhaseIncrement;
+        effectState->ch2Phase += effectState->ch2PhaseIncrement;            
+        
+        if (effectState->ch1Phase >= (2 * M_PI * 100.0F)) {
+            effectState->ch1Phase = effectState->ch1Phase - (2 * M_PI * 100.0F);
         }
- */
+        
+        if (effectState->ch2Phase >= (2 * M_PI * 200.0F)) {
+            effectState->ch2Phase = effectState->ch2Phase - (2 * M_PI * 200.0F);
+        }
+        
+        effectState->test1Phase += effectState->test1PhaseIncrement;
+        effectState->test2Phase += effectState->test2PhaseIncrement;
+        
+        if (effectState->test1Phase >= (2 * M_PI * 1.3F)) {
+            effectState->test1Phase = effectState->test1Phase - (2 * M_PI * 1.3F);
+        }
+        
+        if (effectState->test2Phase >= (2 * M_PI * 9.2F)) {
+            effectState->test2Phase = effectState->test2Phase - (2 * M_PI * 9.2F);
+        }
+
+        // End sine wave multiplication            
+
+        // Inefficient filter!?
+        // Shuffle input history array
+        for (int j=(b_length-1); j > 0; j--) {
+            effectState->dmFilter1.zx[j] = effectState->dmFilter1.zx[j-1];
+            effectState->dmFilter2.zx[j] = effectState->dmFilter2.zx[j-1];
+        }
+        
+        // Store input in input history array
+        effectState->dmFilter1.zx[0] = scaledSignal1;
+        effectState->dmFilter2.zx[0] = scaledSignal2;
+        
+        double accumulator1 = 0.0;
+        double accumulator2 = 0.0;
+        
+        // Multiply and sum
+        for (int j=0; j < b_length; j++) {
+            accumulator1 += effectState->dmFilter1.zx[j] * b[j];
+            accumulator2 += effectState->dmFilter2.zx[j] * b[j];
+        }
+        
+        effectState->currentValues[0] = accumulator1;
+        effectState->currentValues[1] = accumulator2;
+ 
+        
+        AudioSampleType ch1Signal = (AudioSampleType) (accumulator1 * 32767.5 - 0.5);
+        AudioSampleType ch2Signal = (AudioSampleType) (accumulator2 * 32767.5 - 0.5);
+        
+        memcpy(buf.mData + (currentFrame * 4), &ch1Signal, sizeof(AudioSampleType));
+        memcpy(buf.mData + (currentFrame * 4) + 2, &ch2Signal, sizeof(AudioSampleType));
 
 		currentFrame++;
 	}
@@ -324,10 +311,9 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 	[self setUpAudioSession];
 	[self setUpAUConnectionsWithRenderCallback];
 	
-//	effectState.outAddress = nil; // lo_address_new_with_proto(LO_UDP, "192.168.1.64", "7400");
-	
 	memset(&effectState.dmFilter1.zx, 0, sizeof(effectState.dmFilter1.zx));
 	memset(&effectState.dmFilter2.zx, 0, sizeof(effectState.dmFilter2.zx));
+    memset(&effectState.currentValues, 0, sizeof(effectState.currentValues));
 	
 	effectState.ch1Phase = 0.0F;
 	effectState.ch2Phase = 0.0F;

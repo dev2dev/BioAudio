@@ -10,7 +10,8 @@
 #import <AudioToolbox/AudioToolbox.h>
 // #import <lo/lo.h>
 
-#define DEMOD_X_TAPS 84
+#define DEMOD_X_TAPS 177
+#define NUMBER_OF_SIGNALS 2
 
 typedef struct {
 	double zx[DEMOD_X_TAPS];
@@ -30,7 +31,7 @@ typedef struct {
     double test2PhaseIncrement;
     double test1Phase;
     double test2Phase;
-//	lo_address outAddress;
+    double currentValues[NUMBER_OF_SIGNALS];
 	ExtAudioFileRef audioFileRef;
 	int sampleCounter;
 } EffectState;

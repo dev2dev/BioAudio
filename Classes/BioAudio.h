@@ -10,7 +10,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 // #import <lo/lo.h>
 
-#define DEMOD_X_TAPS 177
+#define DEMOD_X_TAPS 243
 #define NUMBER_OF_SIGNALS 2
 
 typedef struct {

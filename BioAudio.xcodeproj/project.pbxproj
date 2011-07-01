@@ -167,6 +167,7 @@
 		3A1A81CA138589D800F6543F /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
 		3A1EA83412ED90E2005AE738 /* OldBioAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OldBioAudio.h; sourceTree = "<group>"; };
 		3A1EA83512ED90E2005AE738 /* OldBioAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OldBioAudio.m; sourceTree = "<group>"; };
+		3A282EC31393CA100096055F /* DemodCoefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemodCoefs.h; sourceTree = "<group>"; };
 		3ABDAE3912F2598D00F2EDEF /* BioAudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BioAudioViewController.h; sourceTree = "<group>"; };
 		3ABDAE3A12F2598D00F2EDEF /* BioAudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BioAudioViewController.m; sourceTree = "<group>"; };
 		3ABDAE3B12F2598D00F2EDEF /* BioAudioViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BioAudioViewController.xib; path = Classes/BioAudioViewController.xib; sourceTree = "<group>"; };
@@ -193,6 +194,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3A282EC31393CA100096055F /* DemodCoefs.h */,
 				3A10482712F6187A008F3F07 /* DropboxSDK */,
 				3AE8079412F43D8200616FE9 /* FirAlgs.c */,
 				1D3623240D0F684500981E51 /* BioAudioAppDelegate.h */,

@@ -98,6 +98,29 @@ loadMetadataFailedWithError:(NSError*)error {
 	NSLog(@"Uploading file... %2.2f percent complete", progress * 100);
 }
 
+- (void)restClient:(DBRestClient*)client uploadedFile:(NSString*)destPath from:(NSString*)srcPath
+{
+    NSLog(@"File uploaded successfully.");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"File Uploaded"
+                                                    message:@"File uploaded successfully."
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    [alert release];
+}
+
+- (void)restClient:(DBRestClient*)client uploadFileFailedWithError:(NSError*)error
+{
+    NSString *info = [NSString stringWithFormat:@"Upload failed with the following error: %@", [error description]];
+    NSLog(@"File upload failed.");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Upload Error"
+                                                    message:info
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+    [alert release];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     /*
      Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

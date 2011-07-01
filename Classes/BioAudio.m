@@ -50,7 +50,7 @@
 	NSAssert (setUpAudioSessionErr == noErr, @"Couldn't set audio session property");
     
     // Set Audio Session Sample Rate
-	Float64 sessionSampleRate = 8000.0;
+	Float64 sessionSampleRate = 11025.0;
 	setUpAudioSessionErr = AudioSessionSetProperty (kAudioSessionProperty_PreferredHardwareSampleRate,
 													sizeof (sessionSampleRate),
 													&sessionSampleRate);
@@ -63,6 +63,15 @@
 													&hardwareSampleRate);
 	NSAssert (setUpAudioSessionErr == noErr, @"Couldn't get current hardware sample rate");
 	NSLog (@"-[BioAudio setUpAudioSession] -- Current hardware sample rate = %f", hardwareSampleRate);
+    
+    NSString *srMessage = [NSString stringWithFormat:@"Sample rate: %6f", hardwareSampleRate];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sample Rate" 
+                                                    message:srMessage 
+                                                   delegate:nil 
+                                          cancelButtonTitle:@"OK" 
+                                          otherButtonTitles:nil, nil];
+    [alert show];
+    [alert release];
 	
 	// Check for audio input
 	UInt32 ui32PropertySize = sizeof (UInt32);
@@ -132,18 +141,19 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 		memcpy(&sample, buf.mData + (currentFrame * 4), sizeof(AudioSampleType));
             
         // Uncomment for real input
-        // double scaledSample = (double) sample / 32768.0;
+        double scaledSample = (double) sample / 32768.0;
+        //double scaledSample = 1.0;
         
         // Generate two sine waves, one at 100Hz, one at 200Hz
-        double modSignal1 = sin(effectState->test1Phase) * 0.2 + 0.5;
-        double modSignal2 = sin(effectState->test2Phase) * 0.2 + 0.5;
+        // double modSignal1 = sin(effectState->test1Phase);// * 0.2 + 0.5;
+        // double modSignal2 = sin(effectState->test2Phase);// * 0.2 + 0.5;
         
 //        double modSignal1 = 0.01;
 //        double modSignal2 = 0.9;
-        double testSignal = (modSignal1 * sin(effectState->ch1Phase)) + (modSignal2 * sin(effectState->ch2Phase));
-                    
-        double scaledSignal1 = testSignal * sin(effectState->ch1Phase);
-        double scaledSignal2 = testSignal * sin(effectState->ch2Phase);
+//        double testSignal = (modSignal1 * sin(effectState->ch1Phase)) + (modSignal2 * sin(effectState->ch2Phase));
+
+        double scaledSignal1 = scaledSample * sin(effectState->ch1Phase);
+        double scaledSignal2 = scaledSample * sin(effectState->ch2Phase);
         
         // Uncomment for real input
         // double scaledSignal1 = sin(effectState->ch1Phase) * scaledSample;
@@ -159,7 +169,8 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
         if (effectState->ch2Phase >= (2 * M_PI * 200.0F)) {
             effectState->ch2Phase = effectState->ch2Phase - (2 * M_PI * 200.0F);
         }
-        
+
+/*        
         effectState->test1Phase += effectState->test1PhaseIncrement;
         effectState->test2Phase += effectState->test2PhaseIncrement;
         
@@ -170,7 +181,7 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
         if (effectState->test2Phase >= (2 * M_PI * 9.2F)) {
             effectState->test2Phase = effectState->test2Phase - (2 * M_PI * 9.2F);
         }
-
+*/
         // End sine wave multiplication            
 
         // Inefficient filter!?
@@ -193,15 +204,27 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
             accumulator2 += effectState->dmFilter2.zx[j] * b[j];
         }
         
-        effectState->currentValues[0] = accumulator1;
-        effectState->currentValues[1] = accumulator2;
- 
+        // effectState->currentValues[0] = accumulator1;
+        // effectState->currentValues[1] = accumulator2;
+
         
-        AudioSampleType ch1Signal = (AudioSampleType) (accumulator1 * 32767.5 - 0.5);
-        AudioSampleType ch2Signal = (AudioSampleType) (accumulator2 * 32767.5 - 0.5);
+        AudioSampleType ch1Signal = (AudioSampleType) (accumulator1 * 32767);
+        AudioSampleType ch2Signal = (AudioSampleType) (accumulator2 * 32767);
         
-        memcpy(buf.mData + (currentFrame * 4), &ch1Signal, sizeof(AudioSampleType));
-        memcpy(buf.mData + (currentFrame * 4) + 2, &ch2Signal, sizeof(AudioSampleType));
+//        double ch1Signal = (AudioSampleType) (scaledSignal1 * 32767.5 - 0.5);
+//        double ch2Signal = (AudioSampleType) (scaledSignal2 * 32767.5 - 0.5);
+        
+//        memcpy(buf.mData + (currentFrame * 4), &ch1Signal, sizeof(AudioSampleType));
+//        memcpy(buf.mData + (currentFrame * 4) + 2, &ch2Signal, sizeof(AudioSampleType));
+        
+//        AudioSampleType s16IntSignal1 = (AudioSampleType) (scaledSignal1 * 32767);
+//        AudioSampleType s16IntSignal2 = (AudioSampleType) (scaledSignal2 * 32767);    
+
+        // memcpy(buf.mData + (currentFrame * 4), &ch1Signal, sizeof(AudioSampleType));
+        // memcpy(buf.mData + (currentFrame * 4) + 2, &ch2Signal, sizeof(AudioSampleType));
+        
+        memcpy(buf.mData + (currentFrame * 4), &sample, sizeof(AudioSampleType));
+        memcpy(buf.mData + (currentFrame * 4) + 2, &sample, sizeof(AudioSampleType));
 
 		currentFrame++;
 	}
@@ -323,7 +346,7 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 	effectState.ch1PhaseIncrement = (2 * M_PI * 100.0F) / hardwareSampleRate;
 	effectState.ch2PhaseIncrement = (2 * M_PI * 200.0F) / hardwareSampleRate;
 	effectState.test1PhaseIncrement = (2 * M_PI * 1.3F) / hardwareSampleRate;
-    effectState.test2PhaseIncrement = (2 * M_PI * 9.2F) / hardwareSampleRate;
+    effectState.test2PhaseIncrement = (2 * M_PI * 2.2F) / hardwareSampleRate;
 	
 	NSLog(@"-[BioAudio setup] -- filter array setup complete");
 
@@ -343,6 +366,7 @@ OSStatus CopyInputRenderCallback (void *							inRefCon,
 	NSLog(@"-[setUpAUConnectionsWithRenderCallback] -- output path selected: %@", (NSString *)destinationURL);
 	
 	AudioStreamBasicDescription myOutASBD = {0};
+    myOutASBD.mSampleRate = hardwareSampleRate;
 	myOutASBD.mBitsPerChannel = 16;
 	myOutASBD.mChannelsPerFrame = 2;
 	myOutASBD.mBytesPerFrame = 4;
